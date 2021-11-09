@@ -7,6 +7,9 @@ Studio* backup = nullptr;
 
 int main(int argc, char** argv){
     std::cout << "hello" << std::endl;
+    for(int i = 0 ; i < 10 ; i ++){
+        std::cout<<i<< std::endl;
+    }
     if(argc!=2){
         std::cout << "" << std::endl;
         return 0;

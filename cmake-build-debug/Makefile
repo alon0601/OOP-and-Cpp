@@ -57,10 +57,10 @@ RM = /home/spl211/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/212.5457.51/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/spl211/CLionProjects/SplProject1
+CMAKE_SOURCE_DIR = /home/spl211/splProject1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/spl211/CLionProjects/SplProject1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/spl211/splProject1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles /home/spl211/CLionProjects/SplProject1/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/splProject1/cmake-build-debug/CMakeFiles /home/spl211/splProject1/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/splProject1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,29 +129,29 @@ SplProject1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/build
 .PHONY : SplProject1/fast
 
-include/Studio.o: include/Studio.cpp.o
-.PHONY : include/Studio.o
+src/Studio.o: src/Studio.cpp.o
+.PHONY : src/Studio.o
 
 # target to build an object file
-include/Studio.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/include/Studio.cpp.o
-.PHONY : include/Studio.cpp.o
+src/Studio.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Studio.cpp.o
+.PHONY : src/Studio.cpp.o
 
-include/Studio.i: include/Studio.cpp.i
-.PHONY : include/Studio.i
+src/Studio.i: src/Studio.cpp.i
+.PHONY : src/Studio.i
 
 # target to preprocess a source file
-include/Studio.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/include/Studio.cpp.i
-.PHONY : include/Studio.cpp.i
+src/Studio.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Studio.cpp.i
+.PHONY : src/Studio.cpp.i
 
-include/Studio.s: include/Studio.cpp.s
-.PHONY : include/Studio.s
+src/Studio.s: src/Studio.cpp.s
+.PHONY : src/Studio.s
 
 # target to generate assembly for a file
-include/Studio.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/include/Studio.cpp.s
-.PHONY : include/Studio.cpp.s
+src/Studio.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Studio.cpp.s
+.PHONY : src/Studio.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -186,9 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SplProject1"
-	@echo "... include/Studio.o"
-	@echo "... include/Studio.i"
-	@echo "... include/Studio.s"
+	@echo "... src/Studio.o"
+	@echo "... src/Studio.i"
+	@echo "... src/Studio.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

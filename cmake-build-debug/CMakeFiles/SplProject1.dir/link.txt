@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/SplProject1.dir/src/main.cpp.o CMakeFiles/SplProject1.dir/include/Studio.cpp.o -o SplProject1 
+/usr/bin/c++ -g CMakeFiles/SplProject1.dir/src/main.cpp.o CMakeFiles/SplProject1.dir/src/Studio.cpp.o -o SplProject1 
