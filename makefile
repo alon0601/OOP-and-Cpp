@@ -1,4 +1,4 @@
-all: studio
+makall: studio
 
 studio: bin/main.o bin/Studio.o
 	@echo 'Building target: studio'

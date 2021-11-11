@@ -25,4 +25,6 @@ private:
     std::vector<BaseAction*> actionsLog;
 };
 
+
+
 #endif

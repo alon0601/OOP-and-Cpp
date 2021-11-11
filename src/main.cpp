@@ -6,9 +6,10 @@ using namespace std;
 Studio* backup = nullptr;
 
 int main(int argc, char** argv){
-    std::cout << "hello" << std::endl;
-    for(int i = 0 ; i < 10 ; i ++){
-        std::cout<<i<< std::endl;
+    std::cout << "hello" << std::endl;vector<int*> ar = {new int(1),new int(2)};
+    vector<int*>::iterator it;
+    for (it = ar.begin(); it != ar.end(); it++) {
+        std::cout << **it << std::endl;
     }
     if(argc!=2){
         std::cout << "" << std::endl;

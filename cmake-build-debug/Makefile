@@ -129,30 +129,6 @@ SplProject1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/build
 .PHONY : SplProject1/fast
 
-src/Studio.o: src/Studio.cpp.o
-.PHONY : src/Studio.o
-
-# target to build an object file
-src/Studio.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Studio.cpp.o
-.PHONY : src/Studio.cpp.o
-
-src/Studio.i: src/Studio.cpp.i
-.PHONY : src/Studio.i
-
-# target to preprocess a source file
-src/Studio.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Studio.cpp.i
-.PHONY : src/Studio.cpp.i
-
-src/Studio.s: src/Studio.cpp.s
-.PHONY : src/Studio.s
-
-# target to generate assembly for a file
-src/Studio.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Studio.cpp.s
-.PHONY : src/Studio.cpp.s
-
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -186,9 +162,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SplProject1"
-	@echo "... src/Studio.o"
-	@echo "... src/Studio.i"
-	@echo "... src/Studio.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
