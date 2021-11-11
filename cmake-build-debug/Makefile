@@ -129,29 +129,101 @@ SplProject1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/build
 .PHONY : SplProject1/fast
 
-include/Studio.o: include/Studio.cpp.o
-.PHONY : include/Studio.o
+src/Customer.o: src/Customer.cpp.o
+.PHONY : src/Customer.o
 
 # target to build an object file
-include/Studio.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/include/Studio.cpp.o
-.PHONY : include/Studio.cpp.o
+src/Customer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Customer.cpp.o
+.PHONY : src/Customer.cpp.o
 
-include/Studio.i: include/Studio.cpp.i
-.PHONY : include/Studio.i
+src/Customer.i: src/Customer.cpp.i
+.PHONY : src/Customer.i
 
 # target to preprocess a source file
-include/Studio.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/include/Studio.cpp.i
-.PHONY : include/Studio.cpp.i
+src/Customer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Customer.cpp.i
+.PHONY : src/Customer.cpp.i
 
-include/Studio.s: include/Studio.cpp.s
-.PHONY : include/Studio.s
+src/Customer.s: src/Customer.cpp.s
+.PHONY : src/Customer.s
 
 # target to generate assembly for a file
-include/Studio.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/include/Studio.cpp.s
-.PHONY : include/Studio.cpp.s
+src/Customer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Customer.cpp.s
+.PHONY : src/Customer.cpp.s
+
+src/Studio.o: src/Studio.cpp.o
+.PHONY : src/Studio.o
+
+# target to build an object file
+src/Studio.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Studio.cpp.o
+.PHONY : src/Studio.cpp.o
+
+src/Studio.i: src/Studio.cpp.i
+.PHONY : src/Studio.i
+
+# target to preprocess a source file
+src/Studio.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Studio.cpp.i
+.PHONY : src/Studio.cpp.i
+
+src/Studio.s: src/Studio.cpp.s
+.PHONY : src/Studio.s
+
+# target to generate assembly for a file
+src/Studio.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Studio.cpp.s
+.PHONY : src/Studio.cpp.s
+
+src/Trainer.o: src/Trainer.cpp.o
+.PHONY : src/Trainer.o
+
+# target to build an object file
+src/Trainer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Trainer.cpp.o
+.PHONY : src/Trainer.cpp.o
+
+src/Trainer.i: src/Trainer.cpp.i
+.PHONY : src/Trainer.i
+
+# target to preprocess a source file
+src/Trainer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Trainer.cpp.i
+.PHONY : src/Trainer.cpp.i
+
+src/Trainer.s: src/Trainer.cpp.s
+.PHONY : src/Trainer.s
+
+# target to generate assembly for a file
+src/Trainer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Trainer.cpp.s
+.PHONY : src/Trainer.cpp.s
+
+src/Workout.o: src/Workout.cpp.o
+.PHONY : src/Workout.o
+
+# target to build an object file
+src/Workout.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Workout.cpp.o
+.PHONY : src/Workout.cpp.o
+
+src/Workout.i: src/Workout.cpp.i
+.PHONY : src/Workout.i
+
+# target to preprocess a source file
+src/Workout.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Workout.cpp.i
+.PHONY : src/Workout.cpp.i
+
+src/Workout.s: src/Workout.cpp.s
+.PHONY : src/Workout.s
+
+# target to generate assembly for a file
+src/Workout.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Workout.cpp.s
+.PHONY : src/Workout.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -186,9 +258,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SplProject1"
-	@echo "... include/Studio.o"
-	@echo "... include/Studio.i"
-	@echo "... include/Studio.s"
+	@echo "... src/Customer.o"
+	@echo "... src/Customer.i"
+	@echo "... src/Customer.s"
+	@echo "... src/Studio.o"
+	@echo "... src/Studio.i"
+	@echo "... src/Studio.s"
+	@echo "... src/Trainer.o"
+	@echo "... src/Trainer.i"
+	@echo "... src/Trainer.s"
+	@echo "... src/Workout.o"
+	@echo "... src/Workout.i"
+	@echo "... src/Workout.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

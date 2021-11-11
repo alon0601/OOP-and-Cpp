@@ -84,10 +84,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/spl211/CLionProjects/SplProject1/include/Studio.cpp">
+		<Unit filename="/home/spl211/CLionProjects/SplProject1/src/Customer.cpp">
 			<Option target="SplProject1"/>
 		</Unit>
-		<Unit filename="/home/spl211/CLionProjects/SplProject1/include/Studio.h">
+		<Unit filename="/home/spl211/CLionProjects/SplProject1/src/Studio.cpp">
+			<Option target="SplProject1"/>
+		</Unit>
+		<Unit filename="/home/spl211/CLionProjects/SplProject1/src/Trainer.cpp">
+			<Option target="SplProject1"/>
+		</Unit>
+		<Unit filename="/home/spl211/CLionProjects/SplProject1/src/Workout.cpp">
 			<Option target="SplProject1"/>
 		</Unit>
 		<Unit filename="/home/spl211/CLionProjects/SplProject1/src/main.cpp">

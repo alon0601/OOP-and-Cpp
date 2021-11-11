@@ -6,49 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/home/spl211/CLionProjects/SplProject1/Action.h
-string
--
-iostream
--
-Customer.h
-/home/spl211/CLionProjects/SplProject1/Customer.h
-
-/home/spl211/CLionProjects/SplProject1/Customer.h
+/home/spl211/CLionProjects/SplProject1/include/Customer.h
 vector
 -
 string
 -
 Workout.h
-/home/spl211/CLionProjects/SplProject1/Workout.h
+/home/spl211/CLionProjects/SplProject1/include/Workout.h
 
-/home/spl211/CLionProjects/SplProject1/Studio.h
-vector
--
-string
--
-Workout.h
-/home/spl211/CLionProjects/SplProject1/Workout.h
-Trainer.h
-/home/spl211/CLionProjects/SplProject1/Trainer.h
-Action.h
-/home/spl211/CLionProjects/SplProject1/Action.h
-
-/home/spl211/CLionProjects/SplProject1/Trainer.h
+/home/spl211/CLionProjects/SplProject1/include/Trainer.h
 vector
 -
 Customer.h
-/home/spl211/CLionProjects/SplProject1/Customer.h
+/home/spl211/CLionProjects/SplProject1/include/Customer.h
 Workout.h
-/home/spl211/CLionProjects/SplProject1/Workout.h
+/home/spl211/CLionProjects/SplProject1/include/Workout.h
 
-/home/spl211/CLionProjects/SplProject1/Workout.h
+/home/spl211/CLionProjects/SplProject1/include/Workout.h
 string
 -
 
-/home/spl211/CLionProjects/SplProject1/main.cpp
-Studio.h
-/home/spl211/CLionProjects/SplProject1/Studio.h
+/home/spl211/CLionProjects/SplProject1/src/Trainer.cpp
 iostream
 -
+iterator
+-
+vector
+-
+../include/Trainer.h
+/home/spl211/CLionProjects/SplProject1/include/Trainer.h
 

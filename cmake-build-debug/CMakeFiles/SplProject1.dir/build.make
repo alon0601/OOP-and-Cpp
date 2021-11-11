@@ -79,32 +79,77 @@ CMakeFiles/SplProject1.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SplProject1.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SplProject1/src/main.cpp -o CMakeFiles/SplProject1.dir/src/main.cpp.s
 
-CMakeFiles/SplProject1.dir/include/Studio.cpp.o: CMakeFiles/SplProject1.dir/flags.make
-CMakeFiles/SplProject1.dir/include/Studio.cpp.o: ../include/Studio.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SplProject1.dir/include/Studio.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SplProject1.dir/include/Studio.cpp.o -c /home/spl211/CLionProjects/SplProject1/include/Studio.cpp
+CMakeFiles/SplProject1.dir/src/Studio.cpp.o: CMakeFiles/SplProject1.dir/flags.make
+CMakeFiles/SplProject1.dir/src/Studio.cpp.o: ../src/Studio.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SplProject1.dir/src/Studio.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SplProject1.dir/src/Studio.cpp.o -c /home/spl211/CLionProjects/SplProject1/src/Studio.cpp
 
-CMakeFiles/SplProject1.dir/include/Studio.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SplProject1.dir/include/Studio.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SplProject1/include/Studio.cpp > CMakeFiles/SplProject1.dir/include/Studio.cpp.i
+CMakeFiles/SplProject1.dir/src/Studio.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SplProject1.dir/src/Studio.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SplProject1/src/Studio.cpp > CMakeFiles/SplProject1.dir/src/Studio.cpp.i
 
-CMakeFiles/SplProject1.dir/include/Studio.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SplProject1.dir/include/Studio.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SplProject1/include/Studio.cpp -o CMakeFiles/SplProject1.dir/include/Studio.cpp.s
+CMakeFiles/SplProject1.dir/src/Studio.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SplProject1.dir/src/Studio.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SplProject1/src/Studio.cpp -o CMakeFiles/SplProject1.dir/src/Studio.cpp.s
+
+CMakeFiles/SplProject1.dir/src/Workout.cpp.o: CMakeFiles/SplProject1.dir/flags.make
+CMakeFiles/SplProject1.dir/src/Workout.cpp.o: ../src/Workout.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SplProject1.dir/src/Workout.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SplProject1.dir/src/Workout.cpp.o -c /home/spl211/CLionProjects/SplProject1/src/Workout.cpp
+
+CMakeFiles/SplProject1.dir/src/Workout.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SplProject1.dir/src/Workout.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SplProject1/src/Workout.cpp > CMakeFiles/SplProject1.dir/src/Workout.cpp.i
+
+CMakeFiles/SplProject1.dir/src/Workout.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SplProject1.dir/src/Workout.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SplProject1/src/Workout.cpp -o CMakeFiles/SplProject1.dir/src/Workout.cpp.s
+
+CMakeFiles/SplProject1.dir/src/Trainer.cpp.o: CMakeFiles/SplProject1.dir/flags.make
+CMakeFiles/SplProject1.dir/src/Trainer.cpp.o: ../src/Trainer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SplProject1.dir/src/Trainer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SplProject1.dir/src/Trainer.cpp.o -c /home/spl211/CLionProjects/SplProject1/src/Trainer.cpp
+
+CMakeFiles/SplProject1.dir/src/Trainer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SplProject1.dir/src/Trainer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SplProject1/src/Trainer.cpp > CMakeFiles/SplProject1.dir/src/Trainer.cpp.i
+
+CMakeFiles/SplProject1.dir/src/Trainer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SplProject1.dir/src/Trainer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SplProject1/src/Trainer.cpp -o CMakeFiles/SplProject1.dir/src/Trainer.cpp.s
+
+CMakeFiles/SplProject1.dir/src/Customer.cpp.o: CMakeFiles/SplProject1.dir/flags.make
+CMakeFiles/SplProject1.dir/src/Customer.cpp.o: ../src/Customer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SplProject1.dir/src/Customer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SplProject1.dir/src/Customer.cpp.o -c /home/spl211/CLionProjects/SplProject1/src/Customer.cpp
+
+CMakeFiles/SplProject1.dir/src/Customer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SplProject1.dir/src/Customer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spl211/CLionProjects/SplProject1/src/Customer.cpp > CMakeFiles/SplProject1.dir/src/Customer.cpp.i
+
+CMakeFiles/SplProject1.dir/src/Customer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SplProject1.dir/src/Customer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spl211/CLionProjects/SplProject1/src/Customer.cpp -o CMakeFiles/SplProject1.dir/src/Customer.cpp.s
 
 # Object files for target SplProject1
 SplProject1_OBJECTS = \
 "CMakeFiles/SplProject1.dir/src/main.cpp.o" \
-"CMakeFiles/SplProject1.dir/include/Studio.cpp.o"
+"CMakeFiles/SplProject1.dir/src/Studio.cpp.o" \
+"CMakeFiles/SplProject1.dir/src/Workout.cpp.o" \
+"CMakeFiles/SplProject1.dir/src/Trainer.cpp.o" \
+"CMakeFiles/SplProject1.dir/src/Customer.cpp.o"
 
 # External object files for target SplProject1
 SplProject1_EXTERNAL_OBJECTS =
 
 SplProject1: CMakeFiles/SplProject1.dir/src/main.cpp.o
-SplProject1: CMakeFiles/SplProject1.dir/include/Studio.cpp.o
+SplProject1: CMakeFiles/SplProject1.dir/src/Studio.cpp.o
+SplProject1: CMakeFiles/SplProject1.dir/src/Workout.cpp.o
+SplProject1: CMakeFiles/SplProject1.dir/src/Trainer.cpp.o
+SplProject1: CMakeFiles/SplProject1.dir/src/Customer.cpp.o
 SplProject1: CMakeFiles/SplProject1.dir/build.make
 SplProject1: CMakeFiles/SplProject1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable SplProject1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable SplProject1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SplProject1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

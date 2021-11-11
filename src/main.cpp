@@ -1,4 +1,5 @@
 #include "../include/Studio.h"
+#include "../include/Trainer.h"
 #include <iostream>
 
 using namespace std;
@@ -6,9 +7,8 @@ using namespace std;
 Studio* backup = nullptr;
 
 int main(int argc, char** argv){
-    std::cout << "hello" << std::endl;
     if(argc!=2){
-        std::cout << "" << std::endl;
+        std::cout << "usage config <path>" << std::endl;
         return 0;
     }
     string configurationFile = argv[1];
