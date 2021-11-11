@@ -57,10 +57,10 @@ RM = /home/spl211/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/212.5457.51/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/spl211/splProject1
+CMAKE_SOURCE_DIR = /home/spl211/CLionProjects/SplProject1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/spl211/splProject1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/spl211/CLionProjects/SplProject1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/splProject1/cmake-build-debug/CMakeFiles /home/spl211/splProject1/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles /home/spl211/CLionProjects/SplProject1/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/splProject1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,6 +129,102 @@ SplProject1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/build
 .PHONY : SplProject1/fast
 
+src/Customer.o: src/Customer.cpp.o
+.PHONY : src/Customer.o
+
+# target to build an object file
+src/Customer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Customer.cpp.o
+.PHONY : src/Customer.cpp.o
+
+src/Customer.i: src/Customer.cpp.i
+.PHONY : src/Customer.i
+
+# target to preprocess a source file
+src/Customer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Customer.cpp.i
+.PHONY : src/Customer.cpp.i
+
+src/Customer.s: src/Customer.cpp.s
+.PHONY : src/Customer.s
+
+# target to generate assembly for a file
+src/Customer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Customer.cpp.s
+.PHONY : src/Customer.cpp.s
+
+src/Studio.o: src/Studio.cpp.o
+.PHONY : src/Studio.o
+
+# target to build an object file
+src/Studio.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Studio.cpp.o
+.PHONY : src/Studio.cpp.o
+
+src/Studio.i: src/Studio.cpp.i
+.PHONY : src/Studio.i
+
+# target to preprocess a source file
+src/Studio.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Studio.cpp.i
+.PHONY : src/Studio.cpp.i
+
+src/Studio.s: src/Studio.cpp.s
+.PHONY : src/Studio.s
+
+# target to generate assembly for a file
+src/Studio.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Studio.cpp.s
+.PHONY : src/Studio.cpp.s
+
+src/Trainer.o: src/Trainer.cpp.o
+.PHONY : src/Trainer.o
+
+# target to build an object file
+src/Trainer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Trainer.cpp.o
+.PHONY : src/Trainer.cpp.o
+
+src/Trainer.i: src/Trainer.cpp.i
+.PHONY : src/Trainer.i
+
+# target to preprocess a source file
+src/Trainer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Trainer.cpp.i
+.PHONY : src/Trainer.cpp.i
+
+src/Trainer.s: src/Trainer.cpp.s
+.PHONY : src/Trainer.s
+
+# target to generate assembly for a file
+src/Trainer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Trainer.cpp.s
+.PHONY : src/Trainer.cpp.s
+
+src/Workout.o: src/Workout.cpp.o
+.PHONY : src/Workout.o
+
+# target to build an object file
+src/Workout.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Workout.cpp.o
+.PHONY : src/Workout.cpp.o
+
+src/Workout.i: src/Workout.cpp.i
+.PHONY : src/Workout.i
+
+# target to preprocess a source file
+src/Workout.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Workout.cpp.i
+.PHONY : src/Workout.cpp.i
+
+src/Workout.s: src/Workout.cpp.s
+.PHONY : src/Workout.s
+
+# target to generate assembly for a file
+src/Workout.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Workout.cpp.s
+.PHONY : src/Workout.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -162,6 +258,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SplProject1"
+	@echo "... src/Customer.o"
+	@echo "... src/Customer.i"
+	@echo "... src/Customer.s"
+	@echo "... src/Studio.o"
+	@echo "... src/Studio.i"
+	@echo "... src/Studio.s"
+	@echo "... src/Trainer.o"
+	@echo "... src/Trainer.i"
+	@echo "... src/Trainer.s"
+	@echo "... src/Workout.o"
+	@echo "... src/Workout.i"
+	@echo "... src/Workout.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

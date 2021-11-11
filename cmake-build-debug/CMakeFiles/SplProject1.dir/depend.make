@@ -8,6 +8,14 @@ CMakeFiles/SplProject1.dir/src/Studio.cpp.o: \
  ../include/Trainer.h \
  ../include/Workout.h \
  ../src/Studio.cpp
+CMakeFiles/SplProject1.dir/src/Trainer.cpp.o: \
+ ../include/Customer.h \
+ ../include/Trainer.h \
+ ../include/Workout.h \
+ ../src/Trainer.cpp
+CMakeFiles/SplProject1.dir/src/Workout.cpp.o: \
+ ../include/Workout.h \
+ ../src/Workout.cpp
 CMakeFiles/SplProject1.dir/src/main.cpp.o: \
  ../include/Action.h \
  ../include/Customer.h \

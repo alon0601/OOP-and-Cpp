@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/spl211/CLionProjects/SplProject1/include/Customer.h
+vector
+-
+string
+-
+Workout.h
+/home/spl211/CLionProjects/SplProject1/include/Workout.h
+
+/home/spl211/CLionProjects/SplProject1/include/Trainer.h
+vector
+-
+Customer.h
+/home/spl211/CLionProjects/SplProject1/include/Customer.h
+Workout.h
+/home/spl211/CLionProjects/SplProject1/include/Workout.h
+
+/home/spl211/CLionProjects/SplProject1/include/Workout.h
+string
+-
+
+/home/spl211/CLionProjects/SplProject1/src/Trainer.cpp
+iostream
+-
+iterator
+-
+vector
+-
+../include/Trainer.h
+/home/spl211/CLionProjects/SplProject1/include/Trainer.h
+
