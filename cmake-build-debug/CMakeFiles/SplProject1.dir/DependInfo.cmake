@@ -8,11 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/spl211/CLionProjects/SplProject1/src/Customer.cpp" "/home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/Customer.cpp.o"
-  "/home/spl211/CLionProjects/SplProject1/src/Studio.cpp" "/home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/Studio.cpp.o"
-  "/home/spl211/CLionProjects/SplProject1/src/Trainer.cpp" "/home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/Trainer.cpp.o"
-  "/home/spl211/CLionProjects/SplProject1/src/Workout.cpp" "/home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/Workout.cpp.o"
-  "/home/spl211/CLionProjects/SplProject1/src/main.cpp" "/home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/main.cpp.o"
+  "/home/spl211/splProject1/src/Customer.cpp" "/home/spl211/splProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/Customer.cpp.o"
+  "/home/spl211/splProject1/src/Studio.cpp" "/home/spl211/splProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/Studio.cpp.o"
+  "/home/spl211/splProject1/src/Trainer.cpp" "/home/spl211/splProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/Trainer.cpp.o"
+  "/home/spl211/splProject1/src/Workout.cpp" "/home/spl211/splProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/Workout.cpp.o"
+  "/home/spl211/splProject1/src/main.cpp" "/home/spl211/splProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
