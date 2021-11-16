@@ -40,7 +40,7 @@ void OpenTrainer::act(Studio &studio) {
                 error("this trainer has an open session");
             } else{
             if(t->getCapacity() < this->customers.size())//if we have more costumers then the capacity
-                error("this trainer can't have more then "+ t->getCapacity());
+                error("this trainer can't have more costumers");
             else {
                 t->openTrainer();//open new session
                 for(Customer* c : this->customers)//adding the costumers to the trainer's list
@@ -51,7 +51,7 @@ void OpenTrainer::act(Studio &studio) {
 }
 
 std::string OpenTrainer::toString() const {
-    return "a";
+    return "Open trainer";
 }
 
 Order::Order(int id) : trainerId(id) {
@@ -72,81 +72,123 @@ void Order::act(Studio &studio) {
 }
 
 std::string Order::toString() const {
+    return "order";
+}
+
+MoveCustomer::MoveCustomer(int src, int dst, int customerId): srcTrainer(src) , dstTrainer(dst) , id(customerId) {
 
 }
 
-//MoveCustomer::MoveCustomer(int src, int dst, int customerId) {
-//
-//}
-//
-//void MoveCustomer::act(Studio &studio) {
-//
-//}
-//
-//std::string MoveCustomer::toString() const {
-//    return std::__cxx11::string();
-//}
-//
-//Close::Close(int id) {
-//
-//}
-//
-//void Close::act(Studio &studio) {
-//
-//}
-//
-//std::string Close::toString() const {
-//    return std::__cxx11::string();
-//}
-//
-//CloseAll::CloseAll() {
-//
-//}
-//
-//void CloseAll::act(Studio &studio) {
-//
-//}
-//
-//std::string CloseAll::toString() const {
-//    return std::__cxx11::string();
-//}
-//
-//PrintWorkoutOptions::PrintWorkoutOptions() {
-//
-//}
-//
-//void PrintWorkoutOptions::act(Studio &studio) {
-//
-//}
-//
-//std::string PrintWorkoutOptions::toString() const {
-//    return std::__cxx11::string();
-//}
-//
-//PrintTrainerStatus::PrintTrainerStatus(int id) {
-//
-//}
-//
-//void PrintTrainerStatus::act(Studio &studio) {
-//
-//}
-//
-//std::string PrintTrainerStatus::toString() const {
-//    return std::__cxx11::string();
-//}
-//
-//PrintActionsLog::PrintActionsLog() {
-//
-//}
-//
-//void PrintActionsLog::act(Studio &studio) {
-//
-//}
-//
-//std::string PrintActionsLog::toString() const {
-//    return std::__cxx11::string();
-//}
-//
+void MoveCustomer::act(Studio &studio) {
+    Trainer* tSrc = studio.getTrainer(srcTrainer);
+    Trainer* tDst = studio.getTrainer(dstTrainer);
+    if(tSrc->getCapacity() > tSrc->getCustomers().size() + 1) {
+        tDst->addCustomer(tSrc->getCustomer(id));
+        tSrc->removeCustomer(id);
+    }
+    else{
+        error("this trainer can't have more costumers");
+    }
+    if(tSrc->getCustomers().size() == 0){
+        delete tSrc;
+    }
+}
+
+std::string MoveCustomer::toString() const {
+    return "Move customer";
+}
+
+Close::Close(int id):trainerId(id) {
+}
+
+void Close::act(Studio &studio) {
+    Trainer* t = studio.getTrainer(trainerId);
+    if(t->isOpen() || studio.isTrainerExist(trainerId))
+        error("trainer doesnt open or exist");
+    else {
+        int salary = t->getSalary();
+        t->getCustomers().clear();
+        t->closeTrainer();
+        error( "Trainer " + to_string(trainerId) + " closed. salary " + to_string(salary));
+    }
+}
+
+std::string Close::toString() const {
+    return "Close";
+}
+
+CloseAll::CloseAll() {
+
+}
+
+void CloseAll::act(Studio &studio) {
+    for(int i = 0;i<studio.getNumOfTrainers();i++){
+        Close* c = new Close(i);
+        c->act(studio);
+    }
+}
+
+std::string CloseAll::toString() const {
+    return "close all";
+}
+
+PrintWorkoutOptions::PrintWorkoutOptions() {
+
+}
+
+void PrintWorkoutOptions::act(Studio &studio) {
+    for(Workout w : studio.getWorkoutOptions())
+        cout << w.toString() << endl;
+}
+
+std::string PrintWorkoutOptions::toString() const {
+    return "Print Workout Options";
+}
+
+PrintTrainerStatus::PrintTrainerStatus(int id) : trainerId(id) {
+
+}
+
+void PrintTrainerStatus::act(Studio &studio) {
+    Trainer* t = studio.getTrainer(trainerId);
+    string s = "Trainer ";
+    s.append(to_string(trainerId));
+    if(t->isOpen()) {
+        s.append(" status : open/n");
+        s.append("costumers/n");
+        bool afterCostumers = true;
+        for (Customer *c: studio.getTrainer(trainerId)->getCustomers()) {
+            s.append(c->toString() + "/n");
+        }
+        for (Customer *c: studio.getTrainer(trainerId)->getCustomers()) {
+            for (OrderPair pair: studio.getTrainer(trainerId)->getOrders())
+                s.append(pair.second.getName() + " " + to_string(pair.second.getPrice()) + " " + to_string(pair.first) +
+                         "/n");
+        }
+        s.append("current trainer's salary :" + to_string(t->getSalary()));
+    }
+    else
+        s.append(" status : close");
+}
+
+std::string PrintTrainerStatus::toString() const {
+    return "print Trainer status";
+}
+
+PrintActionsLog::PrintActionsLog() {
+
+}
+
+void PrintActionsLog::act(Studio &studio) {
+    for(BaseAction* baseAction : studio.getActionsLog()){
+
+    }
+}
+
+std::string PrintActionsLog::toString() const {
+    return std::__cxx11::string();
+}
+
 //BackupStudio::BackupStudio() {
 //
 //}
