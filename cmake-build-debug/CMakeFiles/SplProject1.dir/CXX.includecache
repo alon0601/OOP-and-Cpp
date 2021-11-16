@@ -46,35 +46,13 @@ Workout.h
 string
 -
 
-/home/spl211/CLionProjects/SplProject1/src/Customer.cpp
-algorithm
-/home/spl211/CLionProjects/SplProject1/src/algorithm
-../include/Customer.h
-/home/spl211/CLionProjects/SplProject1/include/Customer.h
-
-/home/spl211/CLionProjects/SplProject1/src/Studio.cpp
-../include/Studio.h
-/home/spl211/CLionProjects/SplProject1/include/Studio.h
-
-/home/spl211/CLionProjects/SplProject1/src/Trainer.cpp
-iostream
--
-iterator
--
-vector
--
-../include/Trainer.h
-/home/spl211/CLionProjects/SplProject1/include/Trainer.h
-
-/home/spl211/CLionProjects/SplProject1/src/Workout.cpp
-../include/Workout.h
-/home/spl211/CLionProjects/SplProject1/include/Workout.h
-
 /home/spl211/CLionProjects/SplProject1/src/main.cpp
 ../include/Studio.h
 /home/spl211/CLionProjects/SplProject1/include/Studio.h
 ../include/Trainer.h
 /home/spl211/CLionProjects/SplProject1/include/Trainer.h
+../include/Workout.h
+/home/spl211/CLionProjects/SplProject1/include/Workout.h
 iostream
 -
 
