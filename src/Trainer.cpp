@@ -55,11 +55,11 @@ std::vector<OrderPair>& Trainer::getOrders() {//check  memory
 
 void Trainer::order(const int customer_id, const std::vector<int> workout_ids, const std::vector<Workout>& workout_options) {
      for(int i =0; i < workout_ids.size(); i++){
-         for(Workout w : workout_options){
+         for(Workout w : workout_options){//fot each workout add it if he is in the costumer's workout ids list
              if(workout_ids.at(i) == w.getId()){
-                 OrderPair p(w.getId(),w);
+                 OrderPair p(customer_id,w);
                  this->orderList.push_back(p);
-                 std::cout <<getCustomer(customer_id)->getName() << " Is doing " << w.toString();
+                 std::cout <<getCustomer(customer_id)->getName() << " Is doing " << w.toString() << endl;
              }
          }
      }
