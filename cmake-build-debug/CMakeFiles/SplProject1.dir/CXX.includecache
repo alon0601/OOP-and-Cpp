@@ -6,57 +6,65 @@
 
 #IncludeRegexTransform: 
 
-/home/spl211/CLionProjects/SplProject1/include/Action.h
+/home/spl211/splProject1/include/Action.h
 string
 -
 iostream
 -
 Customer.h
-/home/spl211/CLionProjects/SplProject1/include/Customer.h
+/home/spl211/splProject1/include/Customer.h
 
-/home/spl211/CLionProjects/SplProject1/include/Customer.h
+/home/spl211/splProject1/include/Customer.h
 vector
 -
 string
 -
 Workout.h
-/home/spl211/CLionProjects/SplProject1/include/Workout.h
+/home/spl211/splProject1/include/Workout.h
 
-/home/spl211/CLionProjects/SplProject1/include/Studio.h
+/home/spl211/splProject1/include/Studio.h
 vector
 -
 string
 -
 Workout.h
-/home/spl211/CLionProjects/SplProject1/include/Workout.h
+/home/spl211/splProject1/include/Workout.h
 Trainer.h
-/home/spl211/CLionProjects/SplProject1/include/Trainer.h
+/home/spl211/splProject1/include/Trainer.h
 Action.h
-/home/spl211/CLionProjects/SplProject1/include/Action.h
+/home/spl211/splProject1/include/Action.h
 
-/home/spl211/CLionProjects/SplProject1/include/Trainer.h
+/home/spl211/splProject1/include/Trainer.h
 vector
 -
 Customer.h
-/home/spl211/CLionProjects/SplProject1/include/Customer.h
+/home/spl211/splProject1/include/Customer.h
 Workout.h
-/home/spl211/CLionProjects/SplProject1/include/Workout.h
+/home/spl211/splProject1/include/Workout.h
 
-/home/spl211/CLionProjects/SplProject1/include/Workout.h
+/home/spl211/splProject1/include/Workout.h
 string
 -
 
-/home/spl211/CLionProjects/SplProject1/src/Customer.cpp
-algorithm
-/home/spl211/CLionProjects/SplProject1/src/algorithm
-../include/Customer.h
-/home/spl211/CLionProjects/SplProject1/include/Customer.h
-
-/home/spl211/CLionProjects/SplProject1/src/Studio.cpp
+/home/spl211/splProject1/src/Action.cpp
+../include/Action.h
+/home/spl211/splProject1/include/Action.h
 ../include/Studio.h
-/home/spl211/CLionProjects/SplProject1/include/Studio.h
+/home/spl211/splProject1/include/Studio.h
 
-/home/spl211/CLionProjects/SplProject1/src/Trainer.cpp
+/home/spl211/splProject1/src/Customer.cpp
+iostream
+-
+algorithm
+/home/spl211/splProject1/src/algorithm
+../include/Customer.h
+/home/spl211/splProject1/include/Customer.h
+
+/home/spl211/splProject1/src/Studio.cpp
+../include/Studio.h
+/home/spl211/splProject1/include/Studio.h
+
+/home/spl211/splProject1/src/Trainer.cpp
 iostream
 -
 iterator
@@ -64,17 +72,21 @@ iterator
 vector
 -
 ../include/Trainer.h
-/home/spl211/CLionProjects/SplProject1/include/Trainer.h
+/home/spl211/splProject1/include/Trainer.h
 
-/home/spl211/CLionProjects/SplProject1/src/Workout.cpp
+/home/spl211/splProject1/src/Workout.cpp
 ../include/Workout.h
-/home/spl211/CLionProjects/SplProject1/include/Workout.h
+/home/spl211/splProject1/include/Workout.h
+iostream
+-
 
-/home/spl211/CLionProjects/SplProject1/src/main.cpp
+/home/spl211/splProject1/src/main.cpp
 ../include/Studio.h
-/home/spl211/CLionProjects/SplProject1/include/Studio.h
+/home/spl211/splProject1/include/Studio.h
 ../include/Trainer.h
-/home/spl211/CLionProjects/SplProject1/include/Trainer.h
+/home/spl211/splProject1/include/Trainer.h
+../include/Workout.h
+/home/spl211/splProject1/include/Workout.h
 iostream
 -
 

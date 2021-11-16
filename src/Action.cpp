@@ -76,98 +76,98 @@ std::string Order::toString() const {
     return "23";
 }
 
-MoveCustomer::MoveCustomer(int src, int dst, int customerId) {
-
-}
-
-void MoveCustomer::act(Studio &studio) {
-
-}
-
-std::string MoveCustomer::toString() const {
-    return std::__cxx11::string();
-}
-
-Close::Close(int id) {
-
-}
-
-void Close::act(Studio &studio) {
-
-}
-
-std::string Close::toString() const {
-    return std::__cxx11::string();
-}
-
-CloseAll::CloseAll() {
-
-}
-
-void CloseAll::act(Studio &studio) {
-
-}
-
-std::string CloseAll::toString() const {
-    return std::__cxx11::string();
-}
-
-PrintWorkoutOptions::PrintWorkoutOptions() {
-
-}
-
-void PrintWorkoutOptions::act(Studio &studio) {
-
-}
-
-std::string PrintWorkoutOptions::toString() const {
-    return std::__cxx11::string();
-}
-
-PrintTrainerStatus::PrintTrainerStatus(int id) {
-
-}
-
-void PrintTrainerStatus::act(Studio &studio) {
-
-}
-
-std::string PrintTrainerStatus::toString() const {
-    return std::__cxx11::string();
-}
-
-PrintActionsLog::PrintActionsLog() {
-
-}
-
-void PrintActionsLog::act(Studio &studio) {
-
-}
-
-std::string PrintActionsLog::toString() const {
-    return std::__cxx11::string();
-}
-
-BackupStudio::BackupStudio() {
-
-}
-
-void BackupStudio::act(Studio &studio) {
-
-}
-
-std::string BackupStudio::toString() const {
-    return std::__cxx11::string();
-}
-
-RestoreStudio::RestoreStudio() {
-
-}
-
-void RestoreStudio::act(Studio &studio) {
-
-}
-
-std::string RestoreStudio::toString() const {
-    return std::__cxx11::string();
-}
+//MoveCustomer::MoveCustomer(int src, int dst, int customerId) {
+//
+//}
+//
+//void MoveCustomer::act(Studio &studio) {
+//
+//}
+//
+//std::string MoveCustomer::toString() const {
+//    return std::__cxx11::string();
+//}
+//
+//Close::Close(int id) {
+//
+//}
+//
+//void Close::act(Studio &studio) {
+//
+//}
+//
+//std::string Close::toString() const {
+//    return std::__cxx11::string();
+//}
+//
+//CloseAll::CloseAll() {
+//
+//}
+//
+//void CloseAll::act(Studio &studio) {
+//
+//}
+//
+//std::string CloseAll::toString() const {
+//    return std::__cxx11::string();
+//}
+//
+//PrintWorkoutOptions::PrintWorkoutOptions() {
+//
+//}
+//
+//void PrintWorkoutOptions::act(Studio &studio) {
+//
+//}
+//
+//std::string PrintWorkoutOptions::toString() const {
+//    return std::__cxx11::string();
+//}
+//
+//PrintTrainerStatus::PrintTrainerStatus(int id) {
+//
+//}
+//
+//void PrintTrainerStatus::act(Studio &studio) {
+//
+//}
+//
+//std::string PrintTrainerStatus::toString() const {
+//    return std::__cxx11::string();
+//}
+//
+//PrintActionsLog::PrintActionsLog() {
+//
+//}
+//
+//void PrintActionsLog::act(Studio &studio) {
+//
+//}
+//
+//std::string PrintActionsLog::toString() const {
+//    return std::__cxx11::string();
+//}
+//
+//BackupStudio::BackupStudio() {
+//
+//}
+//
+//void BackupStudio::act(Studio &studio) {
+//
+//}
+//
+//std::string BackupStudio::toString() const {
+//    return std::__cxx11::string();
+//}
+//
+//RestoreStudio::RestoreStudio() {
+//
+//}
+//
+//void RestoreStudio::act(Studio &studio) {
+//
+//}
+//
+//std::string RestoreStudio::toString() const {
+//    return std::__cxx11::string();
+//}

@@ -59,7 +59,7 @@ void Trainer::order(const int customer_id, const std::vector<int> workout_ids, c
              if(workout_ids.at(i) == w.getId()){
                  OrderPair p(w.getId(),w);
                  this->orderList.push_back(p);
-                 std::cout <<getCustomer(customer_id)->getName() + " Is doing " + w.toString();
+                 std::cout <<getCustomer(customer_id)->getName() << " Is doing " << w.toString();
              }
          }
      }
