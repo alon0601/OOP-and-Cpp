@@ -129,6 +129,30 @@ SplProject1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/build
 .PHONY : SplProject1/fast
 
+src/Action.o: src/Action.cpp.o
+.PHONY : src/Action.o
+
+# target to build an object file
+src/Action.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Action.cpp.o
+.PHONY : src/Action.cpp.o
+
+src/Action.i: src/Action.cpp.i
+.PHONY : src/Action.i
+
+# target to preprocess a source file
+src/Action.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Action.cpp.i
+.PHONY : src/Action.cpp.i
+
+src/Action.s: src/Action.cpp.s
+.PHONY : src/Action.s
+
+# target to generate assembly for a file
+src/Action.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Action.cpp.s
+.PHONY : src/Action.cpp.s
+
 src/Customer.o: src/Customer.cpp.o
 .PHONY : src/Customer.o
 
@@ -258,6 +282,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SplProject1"
+	@echo "... src/Action.o"
+	@echo "... src/Action.i"
+	@echo "... src/Action.s"
 	@echo "... src/Customer.o"
 	@echo "... src/Customer.i"
 	@echo "... src/Customer.s"

@@ -23,5 +23,9 @@ WorkoutType Workout::getType() const {
     return type;
 }
 
+std::string Workout::toString() {
+    return std::__cxx11::string();
+}
+
 
 

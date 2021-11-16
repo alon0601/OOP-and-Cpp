@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/SplProject1.dir/src/Action.cpp.o"
   "CMakeFiles/SplProject1.dir/src/Customer.cpp.o"
   "CMakeFiles/SplProject1.dir/src/Studio.cpp.o"
   "CMakeFiles/SplProject1.dir/src/Trainer.cpp.o"

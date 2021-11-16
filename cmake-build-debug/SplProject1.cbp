@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/spl211/splProject1/src/Action.cpp">
+			<Option target="SplProject1"/>
+		</Unit>
 		<Unit filename="/home/spl211/splProject1/src/Customer.cpp">
 			<Option target="SplProject1"/>
 		</Unit>

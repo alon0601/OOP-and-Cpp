@@ -33,3 +33,7 @@ std::vector<Workout> &Studio::getWorkoutOptions() {
     return b;
 }
 
+bool Studio::isTrainerExist(int id) {
+    return false;
+}
+
