@@ -1,6 +1,7 @@
 //
 // Created by spl211 on 10/11/2021.
 //
+#include <iostream>
 #include "algorithm"
 #include "../include/Customer.h"
 using namespace std;
@@ -55,7 +56,7 @@ std::vector<int> CheapCustomer::order(const std::vector<Workout> &workout_option
 }
 
 std::string CheapCustomer::toString() const {
-    return "";
+    return to_string(getId()) + " " + getName();
 }
 
 HeavyMuscleCustomer::HeavyMuscleCustomer(std::string name, int id) : Customer(name, id) {
@@ -63,56 +64,101 @@ HeavyMuscleCustomer::HeavyMuscleCustomer(std::string name, int id) : Customer(na
 }
 
 std::vector<int> HeavyMuscleCustomer::order(const std::vector<Workout> &workout_options) {
-    vector<Workout> aner;
+    vector<Workout*> aner;
     vector<int> ans;
-    for (Workout w: workout_options){
-        if (w.getType() == 0){
-            aner.push_back(w);
+    int max;
+    for (int i = 0; i < workout_options.size(); i++){
+        if (workout_options[i].getType() == 0){
+            Workout* pt = new Workout(workout_options.at(i));
+            aner.push_back(pt);
         }
     }
-    int j;
-    for (int i = 0; i < aner.size(); i++) {
-        j = most(true,aner);
-        ans.push_back(aner.at(j).getId());
-        aner.erase(aner.begin()+j);
+    int id = (*aner.begin())->getId();
+    while (aner.size() > 0){
+        int index = 0;
+        max = (*(aner.begin()))->getPrice();
+        for (int j = 0; j < aner.size(); ++j) {
+            if ((*aner.at(j)).getPrice() >= max){
+                index = j;
+                max = (*aner.at(j)).getPrice();
+                id = (*aner.at(j)).getId();
+            }
+        }
+        ans.push_back(id);
+        aner.erase(aner.begin() + index);
     }
     return ans;
 }
 
 std::string HeavyMuscleCustomer::toString() const {
-    return "";
+    return to_string(getId()) + " " + getName();
 }
 
 FullBodyCustomer::FullBodyCustomer(std::string name, int id) : Customer(name, id) {
-
 }
 
 std::vector<int> FullBodyCustomer::order(const std::vector<Workout> &workout_options) {
-    return std::vector<int>();
+    vector<int> ans;
+    // cheapest cardio exercise:
+    bool find = false;
+    int min;
+    int id;
+    for (Workout w: workout_options) {
+        if (w.getType() == 2) {
+            if (!find) {
+                min = w.getPrice();
+                id = w.getId();
+                find = true;
+            } else {
+                if (w.getPrice() < min) {
+                    min = w.getPrice();
+                    id = w.getId();
+                }
+            }
+        }
+    }
+    ans.push_back(id);
+
+    //most expensive mix-type workout
+    find = false;
+    int max;
+    for (Workout w: workout_options) {
+        if (w.getType() == 1) {
+            if (!find) {
+                max = w.getPrice();
+                id = w.getId();
+                find = true;
+            } else {
+                if (w.getPrice() > max) {
+                    max = w.getPrice();
+                    id = w.getId();
+                }
+            }
+        }
+    }
+    ans.push_back(id);
+
+    //cheapest anaerobic exercise
+    find = false;
+    for (Workout w: workout_options) {
+        if (w.getType() == 0) {
+            if (!find) {
+                min = w.getPrice();
+                id = w.getId();
+                find = true;
+            } else {
+                if (w.getPrice() < min) {
+                    min = w.getPrice();
+                    id = w.getId();
+                }
+            }
+        }
+    }
+    ans.push_back(id);
+
+    return ans;
 }
 
 std::string FullBodyCustomer::toString() const {
-    return std::__cxx11::string();
-}
-
-int Customer::most (bool high, vector<Workout> &workouts){
-    int comp = workouts.begin()->getPrice();
-    int ans = 0;
-    int i = 0;
-    for (Workout work:workouts) {
-        if (high){
-            if (comp < work.getPrice()){
-                ans = i;
-                comp = work.getPrice();
-            }
-        }
-        else{
-            if (comp > work.getPrice()) {
-                ans = i;
-                comp = work.getPrice();
-            }
-        }
-        i++;
-    }
-    return ans;
+    return to_string(getId()) + " " + getName();
 }
