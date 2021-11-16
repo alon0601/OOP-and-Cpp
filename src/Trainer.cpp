@@ -15,7 +15,8 @@ int Trainer::getCapacity() const {
 }
 
 void Trainer::addCustomer(Customer *customer) {
-    customersList.push_back(customer);
+    if(capacity > this->customersList.size() + 1)
+        customersList.push_back(customer);
 }
 
 Customer *Trainer::getCustomer(int id) {
@@ -85,4 +86,3 @@ int Trainer::getSalary() {
 bool Trainer::isOpen() {
     return open;
 }
-
