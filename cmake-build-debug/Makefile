@@ -57,10 +57,10 @@ RM = /home/spl211/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/212.5457.51/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/spl211/CLionProjects/SplProject1
+CMAKE_SOURCE_DIR = /home/spl211/splProject1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/spl211/CLionProjects/SplProject1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/spl211/splProject1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles /home/spl211/CLionProjects/SplProject1/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/splProject1/cmake-build-debug/CMakeFiles /home/spl211/splProject1/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/CLionProjects/SplProject1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/splProject1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,30 @@ SplProject1: cmake_check_build_system
 SplProject1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/build
 .PHONY : SplProject1/fast
+
+src/Action.o: src/Action.cpp.o
+.PHONY : src/Action.o
+
+# target to build an object file
+src/Action.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Action.cpp.o
+.PHONY : src/Action.cpp.o
+
+src/Action.i: src/Action.cpp.i
+.PHONY : src/Action.i
+
+# target to preprocess a source file
+src/Action.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Action.cpp.i
+.PHONY : src/Action.cpp.i
+
+src/Action.s: src/Action.cpp.s
+.PHONY : src/Action.s
+
+# target to generate assembly for a file
+src/Action.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/Action.cpp.s
+.PHONY : src/Action.cpp.s
 
 src/Customer.o: src/Customer.cpp.o
 .PHONY : src/Customer.o
@@ -258,6 +282,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SplProject1"
+	@echo "... src/Action.o"
+	@echo "... src/Action.i"
+	@echo "... src/Action.s"
 	@echo "... src/Customer.o"
 	@echo "... src/Customer.i"
 	@echo "... src/Customer.s"

@@ -15,6 +15,7 @@ public:
     void start();
     int getNumOfTrainers() const;
     Trainer* getTrainer(int tid);
+    bool isTrainerExist(int id);
 	const std::vector<BaseAction*>& getActionsLog() const; // Return a reference to the history of actions
     std::vector<Workout>& getWorkoutOptions();
 
@@ -24,5 +25,7 @@ private:
     std::vector<Workout> workout_options;
     std::vector<BaseAction*> actionsLog;
 };
+
+
 
 #endif
