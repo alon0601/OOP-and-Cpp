@@ -38,14 +38,13 @@ void OpenTrainer::act(Studio &studio) {
         else{
             if(!t->isOpen()){
                 error("this trainer has an open session");
-            }
-            if(t->getCapacity() < this->customers.size())
-                error("this trainer can't have more then " + t->getCapacity());
+            } else{
+            if(t->getCapacity() < this->customers.size())//if we have more costumers then the capacity
+                error("this trainer can't have more then "+ t->getCapacity());
             else {
-                t->closeTrainer();
-                for(Customer* c : this->customers)
-                {
-                    t->addCustomer(c);
+                t->openTrainer();//open new session
+                for(Customer* c : this->customers)//adding the costumers to the trainer's list
+                        t->addCustomer(c);
                 }
             }
         }
@@ -66,14 +65,14 @@ void Order::act(Studio &studio) {
     }
     else{
         for(Customer* c : t->getCustomers()){
-            t->order(c->getId(),c->order(studio.getWorkoutOptions()),studio.getWorkoutOptions());
+            t->order(c->getId(),c->order(studio.getWorkoutOptions()),studio.getWorkoutOptions());//ordering workout for the trainer's costumer
         }
     }
 
 }
 
 std::string Order::toString() const {
-    return "23";
+
 }
 
 //MoveCustomer::MoveCustomer(int src, int dst, int customerId) {
