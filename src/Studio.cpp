@@ -24,10 +24,12 @@ Trainer *Studio::getTrainer(int tid) {
 }
 
 const std::vector<BaseAction *> &Studio::getActionsLog() const {
-    return <#initializer#>;
+    std::vector<BaseAction*> b;
+    return b;
 }
 
 std::vector<Workout> &Studio::getWorkoutOptions() {
-    return <#initializer#>;
+    std::vector<Workout> b;
+    return b;
 }
 
