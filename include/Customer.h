@@ -12,6 +12,7 @@ public:
     virtual std::string toString() const = 0;
     std::string getName() const;
     int getId() const;
+    static int most(bool high, std::vector<Workout> &workouts);
 private:
     const std::string name;
     const int id;
