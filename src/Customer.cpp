@@ -44,7 +44,7 @@ std::vector<int> CheapCustomer::order(const std::vector<Workout> &workout_option
     vector<int> orders;
     int min = workout_options.begin()->getPrice();
     int i = 0;
-    for (Workout cheap: workout_options) {
+    for (Workout cheap: workout_options) { //find the cheapes workout
         int price = cheap.getPrice();
         if (min > price){
             min = price;
@@ -67,14 +67,14 @@ std::vector<int> HeavyMuscleCustomer::order(const std::vector<Workout> &workout_
     vector<Workout*> aner;
     vector<int> ans;
     int max;
-    for (int i = 0; i < workout_options.size(); i++){
+    for (int i = 0; i < workout_options.size(); i++){ //new vector of pointer of only  type 0
         if (workout_options[i].getType() == 0){
             Workout* pt = new Workout(workout_options.at(i));
             aner.push_back(pt);
         }
     }
     int id = (*aner.begin())->getId();
-    while (aner.size() > 0){
+    while (aner.size() > 0){//sort int vector of orders
         int index = 0;
         max = (*(aner.begin()))->getPrice();
         for (int j = 0; j < aner.size(); ++j) {
@@ -85,6 +85,7 @@ std::vector<int> HeavyMuscleCustomer::order(const std::vector<Workout> &workout_
             }
         }
         ans.push_back(id);
+        delete aner[index]; //check! - delete of the pointers
         aner.erase(aner.begin() + index);
     }
     return ans;
