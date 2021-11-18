@@ -7,7 +7,7 @@ using namespace std;
 #include<vector> // for vectors
 #include "../include/Trainer.h"
 
-Trainer::Trainer(int t_capacity):capacity(t_capacity) {
+Trainer::Trainer(int t_capacity):capacity(t_capacity){
 }
 
 int Trainer::getCapacity() const {
@@ -86,3 +86,4 @@ int Trainer::getSalary() {
 bool Trainer::isOpen() {
     return open;
 }
+

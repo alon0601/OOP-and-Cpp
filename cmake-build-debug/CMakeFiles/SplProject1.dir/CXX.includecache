@@ -52,14 +52,6 @@ string
 ../include/Studio.h
 /home/spl211/splProject1/include/Studio.h
 
-/home/spl211/splProject1/src/Customer.cpp
-iostream
--
-algorithm
-/home/spl211/splProject1/src/algorithm
-../include/Customer.h
-/home/spl211/splProject1/include/Customer.h
-
 /home/spl211/splProject1/src/Studio.cpp
 ../include/Studio.h
 /home/spl211/splProject1/include/Studio.h
@@ -74,12 +66,6 @@ vector
 ../include/Trainer.h
 /home/spl211/splProject1/include/Trainer.h
 
-/home/spl211/splProject1/src/Workout.cpp
-../include/Workout.h
-/home/spl211/splProject1/include/Workout.h
-iostream
--
-
 /home/spl211/splProject1/src/main.cpp
 ../include/Studio.h
 /home/spl211/splProject1/include/Studio.h
@@ -87,6 +73,12 @@ iostream
 /home/spl211/splProject1/include/Trainer.h
 ../include/Workout.h
 /home/spl211/splProject1/include/Workout.h
+../include/Action.h
+/home/spl211/splProject1/include/Action.h
+../include/Customer.h
+/home/spl211/splProject1/include/Customer.h
 iostream
+-
+boost/algorithm/string.hpp
 -
 

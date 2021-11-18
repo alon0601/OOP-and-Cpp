@@ -19,7 +19,7 @@ void BaseAction::complete() {
 
 void BaseAction::error(std::string errorMsg) {
     this->status = ERROR;
-    this->errorMsg = "error: <" + errorMsg + ">";
+    this->errorMsg = errorMsg;
 }
 
 std::string BaseAction::getErrorMsg() const {
@@ -38,9 +38,13 @@ void OpenTrainer::act(Studio &studio) {
         else{
             if(!t->isOpen()){
                 error("this trainer has an open session");
-            } else{
-            if(t->getCapacity() < this->customers.size())//if we have more costumers then the capacity
-                error("this trainer can't have more costumers");
+            } else {
+                if (t->getCapacity() < this->customers.size()){//if we have more costumers then the capacity
+                    for(int i = 0; i < t->getCapacity();i++){
+                        t->addCustomer(this->customers[i]);
+                    }
+                }
+
             else {
                 t->openTrainer();//open new session
                 for(Customer* c : this->customers)//adding the costumers to the trainer's list
@@ -51,7 +55,7 @@ void OpenTrainer::act(Studio &studio) {
 }
 
 std::string OpenTrainer::toString() const {
-    return "Open trainer";
+    return "Open trainer " + to_string(trainerId) + to_string(this->getStatus()) + " " + this->getErrorMsg();
 }
 
 Order::Order(int id) : trainerId(id) {
@@ -72,7 +76,7 @@ void Order::act(Studio &studio) {
 }
 
 std::string Order::toString() const {
-    return "order";
+    return "order" + to_string(this->getStatus()) + " " + this->getErrorMsg();
 }
 
 MoveCustomer::MoveCustomer(int src, int dst, int customerId): srcTrainer(src) , dstTrainer(dst) , id(customerId) {
@@ -90,12 +94,12 @@ void MoveCustomer::act(Studio &studio) {
         error("this trainer can't have more costumers");
     }
     if(tSrc->getCustomers().size() == 0){
-        delete tSrc;
+        delete tSrc ;
     }
 }
 
 std::string MoveCustomer::toString() const {
-    return "Move customer";
+    return "Move customer" + to_string(srcTrainer) + to_string(dstTrainer) +  to_string(this->getStatus()) + " " + this->getErrorMsg();
 }
 
 Close::Close(int id):trainerId(id) {
@@ -114,7 +118,7 @@ void Close::act(Studio &studio) {
 }
 
 std::string Close::toString() const {
-    return "Close";
+    return "Close" + to_string(this->getStatus()) + " " + this->getErrorMsg();
 }
 
 CloseAll::CloseAll() {
@@ -129,7 +133,7 @@ void CloseAll::act(Studio &studio) {
 }
 
 std::string CloseAll::toString() const {
-    return "close all";
+    return "close all" + to_string(this->getStatus()) + " " + this->getErrorMsg();
 }
 
 PrintWorkoutOptions::PrintWorkoutOptions() {
@@ -142,7 +146,7 @@ void PrintWorkoutOptions::act(Studio &studio) {
 }
 
 std::string PrintWorkoutOptions::toString() const {
-    return "Print Workout Options";
+    return "Print Workout Options " + to_string(this->getStatus()) + " " + this->getErrorMsg();
 }
 
 PrintTrainerStatus::PrintTrainerStatus(int id) : trainerId(id) {
@@ -172,7 +176,7 @@ void PrintTrainerStatus::act(Studio &studio) {
 }
 
 std::string PrintTrainerStatus::toString() const {
-    return "print Trainer status";
+    return "print Trainer status " + this->getStatus();
 }
 
 PrintActionsLog::PrintActionsLog() {
@@ -181,12 +185,12 @@ PrintActionsLog::PrintActionsLog() {
 
 void PrintActionsLog::act(Studio &studio) {
     for(BaseAction* baseAction : studio.getActionsLog()){
-
+        baseAction->toString();
     }
 }
 
 std::string PrintActionsLog::toString() const {
-    return std::__cxx11::string();
+    return "print actions log";
 }
 
 //BackupStudio::BackupStudio() {
