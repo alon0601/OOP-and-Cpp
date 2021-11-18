@@ -34,3 +34,11 @@ CMakeFiles/SplProject1.dir/src/main.cpp.o: \
  ../include/Trainer.h \
  ../include/Workout.h \
  ../src/main.cpp
+CMakeFiles/SplProject1.dir/src/testing.cpp.o: \
+ ../include/Action.h \
+ ../include/Customer.h \
+ ../include/Studio.h \
+ ../include/Trainer.h \
+ ../include/Workout.h \
+ ../include/testing.h \
+ ../src/testing.cpp

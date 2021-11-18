@@ -20,6 +20,7 @@ public:
     std::vector<Workout>& getWorkoutOptions();
 
 private:
+    void SplitString(std::string s, std::vector<std::string> &v);
     bool open;
     std::vector<Trainer*> trainers;
     std::vector<Workout> workout_options;
