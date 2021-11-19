@@ -39,16 +39,16 @@ void OpenTrainer::act(Studio &studio) {
             if(t->isOpen()){
                 error("this trainer has an open session");
             } else {
+                t->openTrainer();//open new session
                 if (t->getCapacity() < this->customers.size()){//if we have more costumers then the capacity
                     for(int i = 0; i < t->getCapacity();i++){
                         t->addCustomer(this->customers[i]);
                     }
                 }
-
-            else {
-                t->openTrainer();//open new session
-                for(Customer* c : this->customers)//adding the costumers to the trainer's list
+                else {
+                    for(Customer* c : this->customers){
                         t->addCustomer(c);
+                    }//adding the costumers to the trainer's list
                 }
             }
         }
@@ -108,8 +108,8 @@ Close::Close(int id):trainerId(id) {
 }
 
 void Close::act(Studio &studio) {
-    Trainer* t = studio.getTrainer(trainerId);
-    if(!t->isOpen() || !studio.isTrainerExist(trainerId))
+    Trainer *t = studio.getTrainer(trainerId);
+    if (!t->isOpen() || !studio.isTrainerExist(trainerId))
         error("trainer doesnt open or exist");
     else {
         int salary = t->getSalary();
@@ -148,7 +148,7 @@ PrintWorkoutOptions::PrintWorkoutOptions() {
 
 void PrintWorkoutOptions::act(Studio &studio) {
     for(Workout w : studio.getWorkoutOptions())
-        cout << w.toString() << endl;
+        cout << w.toString() + ", " + to_string(w.getType()) + ", " + to_string(w.getPrice()) << endl;
 }
 
 std::string PrintWorkoutOptions::toString() const {

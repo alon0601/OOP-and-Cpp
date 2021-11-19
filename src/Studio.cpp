@@ -7,6 +7,7 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <error.h>
 #include "boost/algorithm/string.hpp"
 
 using std::cout; using std::cerr;
@@ -85,6 +86,10 @@ void Studio::start() {
 }
 
 Trainer *Studio::getTrainer(int tid) {
+    if (tid >= this->trainers.size()){
+        cout << "this trainer dose not exist" << endl;
+        return nullptr;
+    }
     return this->trainers.at(tid);
 }
 
