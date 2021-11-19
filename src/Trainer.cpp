@@ -8,6 +8,7 @@ using namespace std;
 #include "../include/Trainer.h"
 
 Trainer::Trainer(int t_capacity):capacity(t_capacity){
+    open = false;
 }
 
 int Trainer::getCapacity() const {
@@ -60,7 +61,10 @@ void Trainer::order(const int customer_id, const std::vector<int> workout_ids, c
              if(workout_ids.at(i) == w.getId()){
                  OrderPair p(customer_id,w);
                  this->orderList.push_back(p);
-                 std::cout <<getCustomer(customer_id)->getName() << " Is doing " << w.toString() << endl;
+                 string s = getCustomer(customer_id)->getName();
+                 s.append(" is doing ");
+                 s.append(w.toString());
+                 std::cout << s << endl;
              }
          }
      }

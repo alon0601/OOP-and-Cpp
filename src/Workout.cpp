@@ -4,7 +4,7 @@
 
 #include "../include/Workout.h"
 #include <iostream>
-
+using  namespace std;
 Workout::Workout(int w_id, std::string w_name, int w_price, WorkoutType w_type):id(w_id),name(w_name),price(w_price),type(w_type) {
 }
 
@@ -25,11 +25,11 @@ WorkoutType Workout::getType() const {
 }
 
 std::string Workout::toString() const {
-    std::cout << "id " << getId() << std::endl;
-    std::cout << "name " << getName() << std::endl;
-    std::cout << "type " << getType() << std::endl;
-    std::cout << "price" << getPrice() << std::endl;
-    std::cout << "-----------------------------------" << std::endl;
+    string s = "id " + to_string(getId());
+    s.append(" name " + getName());
+    s.append(" type " + to_string(getType()));
+    s.append(" price " + to_string(getPrice()));
+    return s;
 }
 
 

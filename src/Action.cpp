@@ -36,7 +36,7 @@ void OpenTrainer::act(Studio &studio) {
             error("this trainer isn't exist");
         }
         else{
-            if(!t->isOpen()){
+            if(t->isOpen()){
                 error("this trainer has an open session");
             } else {
                 if (t->getCapacity() < this->customers.size()){//if we have more costumers then the capacity
@@ -68,8 +68,10 @@ void Order::act(Studio &studio) {
         error("this trainer isn't exist");
     }
     else{
+        vector<Workout> w(studio.getWorkoutOptions());
         for(Customer* c : t->getCustomers()){
-            t->order(c->getId(),c->order(studio.getWorkoutOptions()),studio.getWorkoutOptions());//ordering workout for the trainer's costumer
+            vector<int>* orderId = new vector<int>(c->order(w));
+            t->order(c->getId(),*orderId,w);//ordering workout for the trainer's costumer
         }
     }
 
@@ -94,7 +96,7 @@ void MoveCustomer::act(Studio &studio) {
         error("this trainer can't have more costumers");
     }
     if(tSrc->getCustomers().size() == 0){
-        delete tSrc ;
+        tSrc->closeTrainer();
     }
 }
 
@@ -107,13 +109,17 @@ Close::Close(int id):trainerId(id) {
 
 void Close::act(Studio &studio) {
     Trainer* t = studio.getTrainer(trainerId);
-    if(t->isOpen() || studio.isTrainerExist(trainerId))
+    if(!t->isOpen() || !studio.isTrainerExist(trainerId))
         error("trainer doesnt open or exist");
     else {
         int salary = t->getSalary();
         t->getCustomers().clear();
         t->closeTrainer();
-        error( "Trainer " + to_string(trainerId) + " closed. salary " + to_string(salary));
+        string s = "Trainer ";
+        s.append(to_string(trainerId));
+        s.append(" closed. Salary ");
+        s.append(to_string(t->getSalary()));
+        cout << s << endl;
     }
 }
 

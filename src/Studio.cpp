@@ -66,26 +66,26 @@ Studio::Studio(const std::string &configFilePath) {
         }
     }
     //test!
-    cout << "num of trainers - " + to_string(this->trainers.size()) << endl;
-    for (int i = 0; i < this->trainers.size(); ++i) {
-        cout << "trainer num - " + to_string(i) + " capacity: " + to_string(this->trainers[i]->getCapacity()) << endl;
-    }
-    for (int i = 0; i < workout_options.size(); ++i) {
-        cout << workout_options[i].toString() << endl;
-        cout <<"****************"<< endl;
-    }
+//    cout << "num of trainers - " + to_string(this->trainers.size()) << endl;
+//    for (int i = 0; i < this->trainers.size(); ++i) {
+//        cout << "trainer num - " + to_string(i) + " capacity: " + to_string(this->trainers[i]->getCapacity()) << endl;
+//    }
+//    for (int i = 0; i < workout_options.size(); ++i) {
+//        cout << workout_options[i].toString() << endl;
+//        cout <<"****************"<< endl;
+//    }
 
 }
 
 int Studio::getNumOfTrainers() const {
-    return 0;
+    return this->trainers.size();
 }
 
 void Studio::start() {
 }
 
 Trainer *Studio::getTrainer(int tid) {
-    return nullptr;
+    return this->trainers.at(tid);
 }
 
 const std::vector<BaseAction *> &Studio::getActionsLog() const {
@@ -97,7 +97,9 @@ std::vector<Workout> &Studio::getWorkoutOptions() {
 }
 
 bool Studio::isTrainerExist(int id) {
-    return false;
+    if(getTrainer(id) == nullptr)
+        return false;
+    return true;
 }
 
 void Studio::SplitString(string s, vector<string> &v){
