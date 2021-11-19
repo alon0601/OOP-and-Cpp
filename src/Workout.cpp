@@ -25,11 +25,7 @@ WorkoutType Workout::getType() const {
 }
 
 std::string Workout::toString() const {
-    string s = "id " + to_string(getId());
-    s.append(" name " + getName());
-    s.append(" type " + to_string(getType()));
-    s.append(" price " + to_string(getPrice()));
-    return s;
+    return this->getName();
 }
 
 

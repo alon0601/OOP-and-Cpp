@@ -105,7 +105,7 @@ std::vector<int> FullBodyCustomer::order(const std::vector<Workout> &workout_opt
     int min;
     int id;
     for (Workout w: workout_options) {
-        if (w.getType() == 2) {
+        if (w.getType() == ANAEROBIC) {
             if (!find) {
                 min = w.getPrice();
                 id = w.getId();
@@ -118,13 +118,14 @@ std::vector<int> FullBodyCustomer::order(const std::vector<Workout> &workout_opt
             }
         }
     }
-    ans.push_back(id);
-
+    if (find){
+        ans.push_back(id);
+    }
     //most expensive mix-type workout
     find = false;
     int max;
     for (Workout w: workout_options) {
-        if (w.getType() == 1) {
+        if (w.getType() == MIXED) {
             if (!find) {
                 max = w.getPrice();
                 id = w.getId();
@@ -137,7 +138,9 @@ std::vector<int> FullBodyCustomer::order(const std::vector<Workout> &workout_opt
             }
         }
     }
-    ans.push_back(id);
+    if (find){
+        ans.push_back(id);
+    }
 
     //cheapest anaerobic exercise
     find = false;
@@ -155,8 +158,9 @@ std::vector<int> FullBodyCustomer::order(const std::vector<Workout> &workout_opt
             }
         }
     }
-    ans.push_back(id);
-
+    if (find){
+        ans.push_back(id);
+    }
     return ans;
 }
 
