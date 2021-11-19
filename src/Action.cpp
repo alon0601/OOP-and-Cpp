@@ -88,7 +88,7 @@ MoveCustomer::MoveCustomer(int src, int dst, int customerId): srcTrainer(src) , 
 void MoveCustomer::act(Studio &studio) {
     Trainer* tSrc = studio.getTrainer(srcTrainer);
     Trainer* tDst = studio.getTrainer(dstTrainer);
-    if(tSrc->getCapacity() > tSrc->getCustomers().size() + 1) {
+    if(tDst->getCapacity() > tDst->getCustomers().size() + 1) {
         tDst->addCustomer(tSrc->getCustomer(id));
         tSrc->removeCustomer(id);
     }
