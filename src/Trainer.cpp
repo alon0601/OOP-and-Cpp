@@ -91,3 +91,10 @@ bool Trainer::isOpen() {
     return open;
 }
 
+void Trainer::removeAllCustomer() {
+    for(Customer* c : this->customersList){
+        delete c;
+    }
+    this->customersList.clear();
+}
+

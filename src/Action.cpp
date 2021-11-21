@@ -113,7 +113,7 @@ void Close::act(Studio &studio) {
         error("trainer doesnt open or exist");
     else {
         int salary = t->getSalary();
-        t->getCustomers().clear();
+        t->removeAllCustomer();
         t->closeTrainer();
         string s = "Trainer ";
         s.append(to_string(trainerId));
