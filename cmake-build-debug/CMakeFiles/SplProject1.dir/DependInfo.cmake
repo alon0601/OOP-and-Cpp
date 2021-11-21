@@ -14,7 +14,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/spl211/splProject1/src/Trainer.cpp" "/home/spl211/splProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/Trainer.cpp.o"
   "/home/spl211/splProject1/src/Workout.cpp" "/home/spl211/splProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/Workout.cpp.o"
   "/home/spl211/splProject1/src/main.cpp" "/home/spl211/splProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/main.cpp.o"
-  "/home/spl211/splProject1/src/testing.cpp" "/home/spl211/splProject1/cmake-build-debug/CMakeFiles/SplProject1.dir/src/testing.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
