@@ -32,26 +32,26 @@ OpenTrainer::OpenTrainer(int id, vector<Customer *> &customersList): trainerId(i
 
 void OpenTrainer::act(Studio &studio) {
     Trainer* t = studio.getTrainer(this->trainerId);
-        if (!studio.isTrainerExist(trainerId)) {
-            error("this trainer isn't exist");
-        }
-        else{
-            if(t->isOpen()){
-                error("this trainer has an open session");
-            } else {
-                t->openTrainer();//open new session
-                if (t->getCapacity() < this->customers.size()){//if we have more costumers then the capacity
-                    for(int i = 0; i < t->getCapacity();i++){
-                        t->addCustomer(this->customers[i]);
-                    }
-                }
-                else {
-                    for(Customer* c : this->customers){
-                        t->addCustomer(c);
-                    }//adding the costumers to the trainer's list
+    if (!studio.isTrainerExist(trainerId)) {
+        error("this trainer isn't exist");
+    }
+    else{
+        if(t->isOpen()){
+            error("this trainer has an open session");
+        } else {
+            t->openTrainer();//open new session
+            if (t->getCapacity() < this->customers.size()){//if we have more costumers then the capacity
+                for(int i = 0; i < t->getCapacity();i++){
+                    t->addCustomer(this->customers[i]);
                 }
             }
+            else {
+                for(Customer* c : this->customers){
+                    t->addCustomer(c);
+                }//adding the costumers to the trainer's list
+            }
         }
+    }
 }
 
 std::string OpenTrainer::toString() const {
@@ -74,6 +74,7 @@ void Order::act(Studio &studio) {
             t->order(c->getId(),*orderId,w);//ordering workout for the trainer's costumer
         }
     }
+    t->print();
 
 }
 
@@ -89,8 +90,11 @@ void MoveCustomer::act(Studio &studio) {
     Trainer* tSrc = studio.getTrainer(srcTrainer);
     Trainer* tDst = studio.getTrainer(dstTrainer);
     if(tDst->getCapacity() > tDst->getCustomers().size() + 1) {
-        tDst->addCustomer(tSrc->getCustomer(id));
+        Customer* move = tSrc->getCustomer(id);
+        tDst->addCustomer(move);
         tSrc->removeCustomer(id);
+        //should add all the cus order
+        tDst->order(id,move->order(studio.getWorkoutOptions()),studio.getWorkoutOptions()); //add the orders for the customer
     }
     else{
         error("this trainer can't have more costumers");
@@ -112,13 +116,15 @@ void Close::act(Studio &studio) {
     if (!t->isOpen() || !studio.isTrainerExist(trainerId))
         error("trainer doesnt open or exist");
     else {
-        int salary = t->getSalary();
-        t->removeAllCustomer();
+        t->updateSalary();
+        t->getCustomers().clear();
+        t->getOrders().clear();
         t->closeTrainer();
         string s = "Trainer ";
         s.append(to_string(trainerId));
         s.append(" closed. Salary ");
-        s.append(to_string(t->getSalary()));
+        s.append(to_string(t->getTotalSalary()));
+        s.append("NIS");
         cout << s << endl;
     }
 }
@@ -132,9 +138,12 @@ CloseAll::CloseAll() {
 }
 
 void CloseAll::act(Studio &studio) {
-    for(int i = 0;i<studio.getNumOfTrainers();i++){
-        Close* c = new Close(i);
-        c->act(studio);
+    for (int i = 0; i < studio.getNumOfTrainers() ; i++){
+        Trainer* t = studio.getTrainer(i);
+        if (t->isOpen()){
+            Close clos(i);
+            clos.act(studio);
+        }
     }
 }
 
@@ -164,21 +173,24 @@ void PrintTrainerStatus::act(Studio &studio) {
     string s = "Trainer ";
     s.append(to_string(trainerId));
     if(t->isOpen()) {
-        s.append(" status : open/n");
-        s.append("costumers/n");
+        s.append(" status : open \n");
+        s.append("costumers:\n");
         bool afterCostumers = true;
         for (Customer *c: studio.getTrainer(trainerId)->getCustomers()) {
-            s.append(c->toString() + "/n");
+            s.append(c->toString() + "\n");
         }
-        for (Customer *c: studio.getTrainer(trainerId)->getCustomers()) {
-            for (OrderPair pair: studio.getTrainer(trainerId)->getOrders())
-                s.append(pair.second.getName() + " " + to_string(pair.second.getPrice()) + " " + to_string(pair.first) +
-                         "/n");
-        }
-        s.append("current trainer's salary :" + to_string(t->getSalary()));
+        s.append("orders: \n");
+//        for (Customer *c: studio.getTrainer(trainerId)->getCustomers()) {
+//            for (OrderPair pair: studio.getTrainer(trainerId)->getOrders())
+//                s.append(pair.second.getName() + " " + to_string(pair.second.getPrice()) + "NIS " + to_string(pair.first) +
+//                         "\n");
+//        }
+        s.append(t->printOrderList());
+        s.append("current trainer's salary: " + to_string(t->getSalary()) + "NIS");
     }
     else
         s.append(" status : close");
+    cout << s << endl;
 }
 
 std::string PrintTrainerStatus::toString() const {

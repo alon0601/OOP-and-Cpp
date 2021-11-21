@@ -49,24 +49,27 @@ int main(int argc, char** argv){
     std::cout << "******************" << std::endl;
     std::cout << "open trainer 1" << std::endl;
 
-    BaseAction* ot2 = new OpenTrainer(1,v2);
-    ot2->act(studio);
-    BaseAction* ord2 = new Order(1);
-    ord2->act(studio);
+    BaseAction* ot1 = new OpenTrainer(1,v2);
+    ot1->act(studio);
+    BaseAction* ord1 = new Order(1);
+    ord1->act(studio);
     std::cout << "******************" << std::endl;
-    std::cout << "moce cus 2 from 0 to 1" << std::endl;
+    std::cout << "move cus 2 from trainer 0 to 1" << std::endl;
 
     BaseAction* move = new MoveCustomer(0,1,2);
     move->act(studio);
-    ord2->act(studio);
-    std::cout << "print 0 trainer" << std::endl;
-    ord->act(studio);
-
+    std::cout << "print 0 trainer status" << std::endl;
+    BaseAction* ps = new PrintTrainerStatus(0);
+    ps->act(studio);
     std::cout << "_________" << std::endl;
-    BaseAction* close = new Close(0);
-    close->act(studio);
-    BaseAction* print = new PrintWorkoutOptions();
-    print->act(studio);
+    cout << "print trainer 1 status" << endl;
+    BaseAction* ps1 = new PrintTrainerStatus(1);
+    ps1->act(studio);
+    cout<<"-------------------"<<endl;
+    cout<<"&&&&&&&&&&"<<endl;
+    BaseAction* closeall = new CloseAll();
+    closeall->act(studio);
+
 
     return 0;
 }

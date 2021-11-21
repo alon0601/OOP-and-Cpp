@@ -9,6 +9,7 @@ using namespace std;
 
 Trainer::Trainer(int t_capacity):capacity(t_capacity){
     open = false;
+    salary = 0;
 }
 
 int Trainer::getCapacity() const {
@@ -16,8 +17,9 @@ int Trainer::getCapacity() const {
 }
 
 void Trainer::addCustomer(Customer *customer) {
-    if(capacity > this->customersList.size() + 1)
+    if(capacity > this->customersList.size() + 1){
         customersList.push_back(customer);
+    }
 }
 
 Customer *Trainer::getCustomer(int id) {
@@ -39,6 +41,8 @@ void Trainer::removeCustomer(int id) { //do we need to delete the customer?!
         if((*it)->getId() == id){
             flag = true;
             customersList.erase(it);
+            removePair(id);
+
         }
     }
     if (!flag){
@@ -61,10 +65,6 @@ void Trainer::order(const int customer_id, const std::vector<int> workout_ids, c
              if(workout_ids.at(i) == w.getId()){
                  OrderPair p(customer_id,w);
                  this->orderList.push_back(p);
-                 string s = getCustomer(customer_id)->getName();
-                 s.append(" is doing ");
-                 s.append(w.toString());
-                 std::cout << s << endl;
              }
          }
      }
@@ -79,7 +79,7 @@ void Trainer::closeTrainer() {
 }
 
 int Trainer::getSalary() {
-    int sum;
+    int sum = 0;
     vector<OrderPair>::iterator it;
     for (it = orderList.begin(); it != orderList.end() ; it++) {
         sum = sum + ((it->second.getPrice()));
@@ -91,10 +91,41 @@ bool Trainer::isOpen() {
     return open;
 }
 
-void Trainer::removeAllCustomer() {
-    for(Customer* c : this->customersList){
-        delete c;
+void Trainer::removePair(int id) {  //remove from orderList all the orders by 'id' customer
+    vector<OrderPair> order;
+    for (OrderPair p:this->orderList) {
+        if (p.first != id){
+            order.push_back(p);
+        }
     }
-    this->customersList.clear();
+    this->orderList.clear();
+    for (OrderPair p:order) {
+        this->orderList.push_back(p);
+    }
+}
+
+void Trainer::print() {
+    for (OrderPair o:orderList) {
+        string s = getCustomer(o.first)->getName();
+        s.append(" is doing ");
+        s.append(o.second.toString());
+        std::cout << s << endl;
+    }
+}
+
+string Trainer::printOrderList() {
+    string s;
+    for (OrderPair p: this->orderList){
+        s.append(p.second.getName() + " " + to_string(p.second.getPrice()) + "NIS " + to_string(p.first) + "\n");
+    }
+    return s;
+}
+
+void Trainer::updateSalary() {
+    this->salary = this->salary + getSalary();
+}
+
+int Trainer::getTotalSalary() {
+    return this->salary;
 }
 
