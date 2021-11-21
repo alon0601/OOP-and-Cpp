@@ -19,9 +19,14 @@ public:
     void order(const int customer_id, const std::vector<int> workout_ids, const std::vector<Workout>& workout_options);
     void openTrainer();
     void closeTrainer();
-    int getSalary();
+    int getSalary(); //salary for a session
     bool isOpen();
+    void print(); //print for order
+    std::string printOrderList(); //string of the order
+    void updateSalary(); //update the salary for the day
+    int getTotalSalary(); //salary for all day
 private:
+    void removePair(int id); //gets the id of the customer you want to remove
     int capacity;
     bool open;
     int salary;

@@ -66,15 +66,6 @@ Studio::Studio(const std::string &configFilePath) {
             words.clear();
         }
     }
-    //test!
-//    cout << "num of trainers - " + to_string(this->trainers.size()) << endl;
-//    for (int i = 0; i < this->trainers.size(); ++i) {
-//        cout << "trainer num - " + to_string(i) + " capacity: " + to_string(this->trainers[i]->getCapacity()) << endl;
-//    }
-//    for (int i = 0; i < workout_options.size(); ++i) {
-//        cout << workout_options[i].toString() << endl;
-//        cout <<"****************"<< endl;
-//    }
 
 }
 
@@ -87,7 +78,6 @@ void Studio::start() {
 
 Trainer *Studio::getTrainer(int tid) {
     if (tid >= this->trainers.size()){
-        cout << "this trainer dose not exist" << endl;
         return nullptr;
     }
     return this->trainers.at(tid);
@@ -111,7 +101,7 @@ void Studio::SplitString(string s, vector<string> &v){
 
 	string temp = "";
 	for(int i=0;i<s.length();i++){
-		if(s[i] == ','){
+        if(s[i] == ','){
             if (temp != "") {
                 v.push_back(temp);
                 temp = "";
