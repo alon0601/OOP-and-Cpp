@@ -11,6 +11,7 @@
 class Studio{		
 public:
 	Studio();
+    Studio(const Studio& other);
     Studio(const std::string &configFilePath);
     void start();
     int getNumOfTrainers() const;
@@ -20,7 +21,7 @@ public:
     std::vector<Workout>& getWorkoutOptions();
 
 private:
-    void SplitString(std::string s, std::vector<std::string> &v);
+    void SplitString(std::string s, std::vector<std::string> &v,char c);
     bool open;
     std::vector<Trainer*> trainers;
     std::vector<Workout> workout_options;

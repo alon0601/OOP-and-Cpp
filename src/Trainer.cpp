@@ -11,7 +11,11 @@ Trainer::Trainer(int t_capacity):capacity(t_capacity){
     open = false;
     salary = 0;
 }
+Trainer::Trainer(const Trainer& other):open(other.open),salary(other.salary),capacity(other.capacity) {
+    for(Customer* c:other.customersList)
+        this->customersList.push_back(c->copy());
 
+}
 int Trainer::getCapacity() const {
     return capacity;
 }
@@ -60,14 +64,21 @@ std::vector<OrderPair>& Trainer::getOrders() {//check  memory
 }
 
 void Trainer::order(const int customer_id, const std::vector<int> workout_ids, const std::vector<Workout>& workout_options) {
-     for(int i =0; i < workout_ids.size(); i++){
-         for(Workout w : workout_options){//fot each workout add it if he is in the costumer's workout ids list
-             if(workout_ids.at(i) == w.getId()){
-                 OrderPair p(customer_id,w);
-                 this->orderList.push_back(p);
-             }
-         }
-     }
+    bool orderd = false;
+    for(OrderPair ord : orderList){
+        if(ord.first == customer_id)
+            orderd = true;
+    }
+    if(!orderd) {
+        for (int i = 0; i < workout_ids.size(); i++) {
+            for (Workout w: workout_options) {//fot each workout add it if he is in the costumer's workout ids list
+                if (workout_ids.at(i) == w.getId()) {
+                    OrderPair p(customer_id, w);
+                    this->orderList.push_back(p);
+                }
+            }
+        }
+    }
 }
 
 void Trainer::openTrainer() {
@@ -136,4 +147,6 @@ void Trainer::removeAllCustomer() {
     this->customersList.clear();
     this->orderList.clear();
 }
+
+
 

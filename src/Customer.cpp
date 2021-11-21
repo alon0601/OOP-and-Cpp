@@ -19,7 +19,9 @@ int Customer::getId() const {
 
 SweatyCustomer::SweatyCustomer(std::string name, int id) : Customer(name, id) {
 }
-
+Customer *SweatyCustomer::copy() {
+    return new SweatyCustomer(this->getName(),this->getId());
+}
 std::vector<int> SweatyCustomer::order(const std::vector<Workout> &workout_options) {
     vector<int> orders;
     int i = 0;
@@ -59,8 +61,16 @@ std::string CheapCustomer::toString() const {
     return to_string(getId()) + " " + getName();
 }
 
+Customer *CheapCustomer::copy() {
+    return new CheapCustomer(this->getName(),this->getId());
+}
+
 HeavyMuscleCustomer::HeavyMuscleCustomer(std::string name, int id) : Customer(name, id) {
 
+}
+
+Customer *HeavyMuscleCustomer::copy() {
+    return new HeavyMuscleCustomer(this->getName(),this->getId());
 }
 
 std::vector<int> HeavyMuscleCustomer::order(const std::vector<Workout> &workout_options) {
@@ -97,6 +107,9 @@ std::string HeavyMuscleCustomer::toString() const {
 
 FullBodyCustomer::FullBodyCustomer(std::string name, int id) : Customer(name, id) {
 }
+Customer *FullBodyCustomer::copy() {
+    return new FullBodyCustomer(this->getName(),this->getId());
+}
 
 std::vector<int> FullBodyCustomer::order(const std::vector<Workout> &workout_options) {
     vector<int> ans;
@@ -105,7 +118,7 @@ std::vector<int> FullBodyCustomer::order(const std::vector<Workout> &workout_opt
     int min;
     int id;
     for (Workout w: workout_options) {
-        if (w.getType() == ANAEROBIC) {
+        if (w.getType() == CARDIO) {
             if (!find) {
                 min = w.getPrice();
                 id = w.getId();
@@ -145,7 +158,7 @@ std::vector<int> FullBodyCustomer::order(const std::vector<Workout> &workout_opt
     //cheapest anaerobic exercise
     find = false;
     for (Workout w: workout_options) {
-        if (w.getType() == 0) {
+        if (w.getType() == ANAEROBIC) {
             if (!find) {
                 min = w.getPrice();
                 id = w.getId();
@@ -167,3 +180,5 @@ std::vector<int> FullBodyCustomer::order(const std::vector<Workout> &workout_opt
 std::string FullBodyCustomer::toString() const {
     return to_string(getId()) + " " + getName();
 }
+
+

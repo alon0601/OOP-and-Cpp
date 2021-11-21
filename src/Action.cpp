@@ -3,6 +3,7 @@
 //
 #include "../include/Action.h"
 #include "../include/Studio.h"
+extern Studio* backup;
 using namespace std;
 
 BaseAction::BaseAction() {
@@ -34,11 +35,14 @@ void OpenTrainer::act(Studio &studio) {
     Trainer* t = studio.getTrainer(this->trainerId);
     if (!studio.isTrainerExist(trainerId)) {
         error("this trainer isn't exist");
+        cout << "Error : trainer doesnt exist" << endl;
     }
     else{
         if(t->isOpen()){
             error("this trainer has an open session");
-        } else {
+            cout << "Error : trainer has an open session" << endl;
+        }
+        else {
             t->openTrainer();//open new session
             if (t->getCapacity() < this->customers.size()){//if we have more costumers then the capacity
                 for(int i = 0; i < t->getCapacity();i++){
@@ -179,11 +183,6 @@ void PrintTrainerStatus::act(Studio &studio) {
             s.append(c->toString() + "\n");
         }
         s.append("orders: \n");
-//        for (Customer *c: studio.getTrainer(trainerId)->getCustomers()) {
-//            for (OrderPair pair: studio.getTrainer(trainerId)->getOrders())
-//                s.append(pair.second.getName() + " " + to_string(pair.second.getPrice()) + "NIS " + to_string(pair.first) +
-//                         "\n");
-//        }
         s.append(t->printOrderList());
         s.append("current trainer's salary: " + to_string(t->getSalary()) + "NIS");
     }
@@ -210,17 +209,17 @@ std::string PrintActionsLog::toString() const {
     return "print actions log";
 }
 
-//BackupStudio::BackupStudio() {
-//
-//}
-//
-//void BackupStudio::act(Studio &studio) {
-//
-//}
-//
-//std::string BackupStudio::toString() const {
-//    return std::__cxx11::string();
-//}
+BackupStudio::BackupStudio() {
+
+}
+
+void BackupStudio::act(Studio &studio) {
+    backup = new Studio(studio);
+}
+
+std::string BackupStudio::toString() const {
+    return std::__cxx11::string();
+}
 //
 //RestoreStudio::RestoreStudio() {
 //
