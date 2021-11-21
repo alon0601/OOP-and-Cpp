@@ -13,6 +13,7 @@ public:
     int getCapacity() const;
     void addCustomer(Customer* customer);
     void removeCustomer(int id);
+    void removeAllCustomer();
     Customer* getCustomer(int id);
     std::vector<Customer*>& getCustomers();
     std::vector<OrderPair>& getOrders();
