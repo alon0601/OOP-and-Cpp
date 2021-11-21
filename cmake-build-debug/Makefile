@@ -57,10 +57,10 @@ RM = /home/spl211/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/212.5457.51/bin
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/spl211/CLionProjects/splProject1
+CMAKE_SOURCE_DIR = /home/spl211/splProject1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/spl211/CLionProjects/splProject1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/spl211/splProject1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/CLionProjects/splProject1/cmake-build-debug/CMakeFiles /home/spl211/CLionProjects/splProject1/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/splProject1/cmake-build-debug/CMakeFiles /home/spl211/splProject1/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/CLionProjects/splProject1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/splProject1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -272,31 +272,6 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
-
-src/testing.o: src/testing.cpp.o
-.PHONY : src/testing.o
-
-# target to build an object file
-src/testing.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/testing.cpp.o
-.PHONY : src/testing.cpp.o
-
-src/testing.i: src/testing.cpp.i
-.PHONY : src/testing.i
-
-# target to preprocess a source file
-src/testing.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/testing.cpp.i
-.PHONY : src/testing.cpp.i
-
-src/testing.s: src/testing.cpp.s
-.PHONY : src/testing.s
-
-# target to generate assembly for a file
-src/testing.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SplProject1.dir/build.make CMakeFiles/SplProject1.dir/src/testing.cpp.s
-.PHONY : src/testing.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -324,9 +299,6 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/testing.o"
-	@echo "... src/testing.i"
-	@echo "... src/testing.s"
 .PHONY : help
 
 

@@ -1,8 +1,8 @@
 makall: studio
 
-studio: bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o
+studio: bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
 	@echo 'Building target: studio'
-	g++ -o bin/studio bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o
+	g++ -o bin/studio bin/main.o bin/Studio.o bin/Trainer.o bin/Customer.o bin/Workout.o bin/Action.o
 	@echo 'Finished building target: studio'
 	@echo ' '
 
@@ -20,6 +20,9 @@ bin/Customer.o: src/Customer.cpp
 
 bin/Workout.o: src/Workout.cpp
 	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Workout.o src/Workout.cpp
+
+bin/Action.o: src/Action.cpp
+	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/Action.o src/Action.cpp
 
 clean:
 	rm -f bin/*

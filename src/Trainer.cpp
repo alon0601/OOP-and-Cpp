@@ -129,3 +129,11 @@ int Trainer::getTotalSalary() {
     return this->salary;
 }
 
+void Trainer::removeAllCustomer() {
+    for(Customer* c: this->customersList) {
+        delete c;
+    }
+    this->customersList.clear();
+    this->orderList.clear();
+}
+
