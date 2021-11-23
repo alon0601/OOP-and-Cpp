@@ -11,6 +11,10 @@ class Trainer{
 public:
     Trainer(int t_capacity);
     Trainer(const Trainer& trainer);
+    Trainer(Trainer&& other);
+    Trainer& operator=(Trainer &&other);
+    Trainer &operator=(const Trainer &other);
+    ~Trainer();
     int getCapacity() const;
     void addCustomer(Customer* customer);
     void removeCustomer(int id);

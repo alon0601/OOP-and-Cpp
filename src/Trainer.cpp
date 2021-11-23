@@ -14,8 +14,48 @@ Trainer::Trainer(int t_capacity):capacity(t_capacity){
 Trainer::Trainer(const Trainer& other):open(other.open),salary(other.salary),capacity(other.capacity) {
     for(Customer* c:other.customersList)
         this->customersList.push_back(c->copy());
+    for(OrderPair pair:other.orderList)
+        this->orderList.push_back(pair);
 
 }
+Trainer::Trainer(Trainer &&other) :open(other.open),salary(other.salary),capacity(other.capacity),orderList(move(other.orderList)),customersList(move(other.customersList)){
+}
+
+Trainer &Trainer::operator=(Trainer &&other) {
+    this->customersList = move(other.customersList);
+    this->orderList = move(other.orderList);
+    this->salary= other.salary;
+    this->open = other.open;
+}
+
+Trainer &Trainer::operator=(const Trainer &other) {
+    if (this == &other){
+        return *this;
+    }
+    else{
+        this->orderList.clear();
+        for (Customer* cus:this->customersList){
+            delete cus;
+        }
+        this->customersList.clear();
+        for (Customer* cus:other.customersList){
+            this->customersList.push_back(cus);
+        }
+        for (OrderPair p:other.orderList){
+            this->orderList.push_back(p);
+        }
+        this->open = other.open;
+        this->salary = other.salary;
+        this->capacity = other.capacity;
+    }
+}
+
+Trainer::~Trainer() {
+    for(Customer* c:this->customersList)
+        delete c;
+    this->orderList.clear();
+}
+
 int Trainer::getCapacity() const {
     return capacity;
 }
@@ -147,6 +187,18 @@ void Trainer::removeAllCustomer() {
     this->customersList.clear();
     this->orderList.clear();
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

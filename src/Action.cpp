@@ -55,15 +55,28 @@ void OpenTrainer::act(Studio &studio) {
                 }//adding the costumers to the trainer's list
             }
         }
+        complete();
     }
 }
 
 std::string OpenTrainer::toString() const {
-    return "Open trainer " + to_string(trainerId) + to_string(this->getStatus()) + " " + this->getErrorMsg();
+    return "Open trainer " + to_string(trainerId) + " " + to_string(this->getStatus()) + " " + this->getErrorMsg();
 }
+
+BaseAction *OpenTrainer::copy() {
+    vector <Customer*> cus;
+    for(Customer* c : this->customers)
+        cus.push_back(c);
+    return new OpenTrainer(this->trainerId,cus);
+}
+
 
 Order::Order(int id) : trainerId(id) {
 
+}
+
+BaseAction *Order::copy() {
+    return new Order(this->trainerId);
 }
 
 void Order::act(Studio &studio) {
@@ -77,17 +90,21 @@ void Order::act(Studio &studio) {
             vector<int>* orderId = new vector<int>(c->order(w));
             t->order(c->getId(),*orderId,w);//ordering workout for the trainer's costumer
         }
+        complete();
+        t->print();
     }
-    t->print();
-
 }
 
 std::string Order::toString() const {
-    return "order" + to_string(this->getStatus()) + " " + this->getErrorMsg();
+    return "order" + ' ' + to_string(this->getStatus()) + " " + this->getErrorMsg();
 }
 
 MoveCustomer::MoveCustomer(int src, int dst, int customerId): srcTrainer(src) , dstTrainer(dst) , id(customerId) {
 
+}
+
+BaseAction *MoveCustomer::copy() {
+    return new MoveCustomer(this->srcTrainer,this->dstTrainer,this->id);
 }
 
 void MoveCustomer::act(Studio &studio) {
@@ -99,6 +116,7 @@ void MoveCustomer::act(Studio &studio) {
         tSrc->removeCustomer(id);
         //should add all the cus order
         tDst->order(id,move->order(studio.getWorkoutOptions()),studio.getWorkoutOptions()); //add the orders for the customer
+        complete();
     }
     else{
         error("this trainer can't have more costumers");
@@ -115,6 +133,10 @@ std::string MoveCustomer::toString() const {
 Close::Close(int id):trainerId(id) {
 }
 
+BaseAction *Close::copy() {
+    return new Close(this->trainerId);
+}
+
 void Close::act(Studio &studio) {
     Trainer *t = studio.getTrainer(trainerId);
     if (!t->isOpen() || !studio.isTrainerExist(trainerId))
@@ -129,6 +151,7 @@ void Close::act(Studio &studio) {
         s.append(to_string(t->getTotalSalary()));
         s.append("NIS");
         cout << s << endl;
+        complete();
     }
 }
 
@@ -138,6 +161,10 @@ std::string Close::toString() const {
 
 CloseAll::CloseAll() {
 
+}
+
+BaseAction *CloseAll::copy() {
+    return new CloseAll();
 }
 
 void CloseAll::act(Studio &studio) {
@@ -158,9 +185,14 @@ PrintWorkoutOptions::PrintWorkoutOptions() {
 
 }
 
+BaseAction *PrintWorkoutOptions::copy() {
+    return new PrintWorkoutOptions();
+}
+
 void PrintWorkoutOptions::act(Studio &studio) {
     for(Workout w : studio.getWorkoutOptions())
         cout << w.toString() + ", " + to_string(w.getType()) + ", " + to_string(w.getPrice()) << endl;
+    complete();
 }
 
 std::string PrintWorkoutOptions::toString() const {
@@ -169,6 +201,10 @@ std::string PrintWorkoutOptions::toString() const {
 
 PrintTrainerStatus::PrintTrainerStatus(int id) : trainerId(id) {
 
+}
+
+BaseAction *PrintTrainerStatus::copy() {
+    return new PrintTrainerStatus(this->trainerId);
 }
 
 void PrintTrainerStatus::act(Studio &studio) {
@@ -189,6 +225,7 @@ void PrintTrainerStatus::act(Studio &studio) {
     else
         s.append(" status : close");
     cout << s << endl;
+    complete();
 }
 
 std::string PrintTrainerStatus::toString() const {
@@ -199,10 +236,15 @@ PrintActionsLog::PrintActionsLog() {
 
 }
 
+BaseAction *PrintActionsLog::copy() {
+    return new PrintActionsLog();
+}
+
 void PrintActionsLog::act(Studio &studio) {
     for(BaseAction* baseAction : studio.getActionsLog()){
-        baseAction->toString();
+        cout << baseAction->toString() << endl;
     }
+    complete();
 }
 
 std::string PrintActionsLog::toString() const {
@@ -213,22 +255,38 @@ BackupStudio::BackupStudio() {
 
 }
 
+BaseAction *BackupStudio::copy() {
+    return new BackupStudio();
+}
+
 void BackupStudio::act(Studio &studio) {
     backup = new Studio(studio);
+    complete();
 }
 
 std::string BackupStudio::toString() const {
-    return std::__cxx11::string();
+    return "backup";
 }
-//
-//RestoreStudio::RestoreStudio() {
-//
-//}
-//
-//void RestoreStudio::act(Studio &studio) {
-//
-//}
-//
-//std::string RestoreStudio::toString() const {
-//    return std::__cxx11::string();
-//}
+
+RestoreStudio::RestoreStudio() {
+
+}
+
+BaseAction *RestoreStudio::copy() {
+    return new RestoreStudio();
+}
+
+void RestoreStudio::act(Studio &studio) {
+    if(backup == nullptr) {
+        error("no backup available");
+        cout << "no backup available" << endl;
+    }
+    else{
+        studio = *backup;
+        complete();
+    }
+}
+
+std::string RestoreStudio::toString() const {
+    return "restored";
+}

@@ -76,6 +76,50 @@ Studio::Studio(const std::string &configFilePath) {
     }
 
 }
+Studio::Studio(const Studio& other):open(other.open) {
+    for(Workout w: other.workout_options)
+        this->workout_options.push_back(w);
+    for(Trainer* t: other.trainers){
+        this->trainers.push_back(new Trainer(*t));
+    }
+    for(BaseAction* action: other.actionsLog){
+        this->actionsLog.push_back(action->copy());
+    }
+}
+
+Studio &Studio::operator=(const Studio &other) {
+    if(this == & other){
+        return *this;
+    }
+    this->workout_options.clear();
+    for(Trainer* t : trainers)
+        delete t;
+    this->trainers.clear();
+    for(BaseAction* action : actionsLog)
+        delete action;
+    this->actionsLog.clear();
+
+
+    for(Workout w: other.workout_options)
+        this->workout_options.push_back(w);
+    for(Trainer* t: other.trainers){
+        this->trainers.push_back(new Trainer(*t));
+    }
+    for(BaseAction* action: other.actionsLog){
+        this->actionsLog.push_back(action->copy());
+    }
+    return *this;
+}
+
+Studio::~Studio() {
+    this->workout_options.clear();
+    for(Trainer* t : trainers)
+        delete t;
+    this->trainers.clear();
+    for(BaseAction* action : actionsLog)
+        delete action;
+    this->actionsLog.clear();
+}
 
 int Studio::getNumOfTrainers() const {
     return this->trainers.size();
@@ -85,11 +129,11 @@ void Studio::start() {
     cout << "Studio is now open!" << endl;
     string input;
     BaseAction *action;
+    cout << "please enter an action" << endl;
+    getline(cin, input);
     int ids = 0;
-    while(input != "CloseAll") {
-        cout << "please enter an action" << endl;
+    while(input != "closeall") {
         vector<string> words;
-        getline(cin, input);
         SplitString(input, words, ' ');
         if (words[0] == "open"){
             vector<Customer*> customer;
@@ -137,8 +181,13 @@ void Studio::start() {
         if(words[0] == "backup"){
             action = new BackupStudio();
         }
+        if(words[0] == "restore"){
+            action = new RestoreStudio();
+        }
         action->act(*this);
         this->actionsLog.push_back(action);
+        cout << "please enter an action" << endl;
+        getline(cin, input);
     }
     action = new CloseAll();
     action->act(*this);
@@ -183,14 +232,6 @@ void Studio::SplitString(string s, vector<string> &v,char check){
 
 }
 
-Studio::Studio(const Studio& other):open(other.open) {
-    for(Workout w: this->workout_options)
-        this->workout_options.push_back(w);
-    for(Trainer* t: this->trainers){
-        this->trainers.push_back(new Trainer(*t));
-    }
-    for(BaseAction* action: this->actionsLog){
-        this->actionsLog.push_back(action);
-    }
 
-}
+
+
