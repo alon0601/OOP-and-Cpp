@@ -46,9 +46,19 @@ Workout.h
 string
 -
 
-/home/spl211/splProject1/src/Action.cpp
-../include/Action.h
-/home/spl211/splProject1/include/Action.h
+/home/spl211/splProject1/src/Studio.cpp
 ../include/Studio.h
 /home/spl211/splProject1/include/Studio.h
+iostream
+-
+fstream
+-
+sstream
+-
+algorithm
+-
+error.h
+-
+boost/algorithm/string.hpp
+/home/spl211/splProject1/src/boost/algorithm/string.hpp
 

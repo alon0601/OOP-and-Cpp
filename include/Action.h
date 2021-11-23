@@ -18,6 +18,8 @@ public:
     ActionStatus getStatus() const;
     virtual void act(Studio& studio)=0;
     virtual std::string toString() const=0;
+    virtual BaseAction* copy() = 0;
+    virtual ~BaseAction() = default;
 protected:
     void complete();
     void error(std::string errorMsg);
@@ -31,6 +33,8 @@ private:
 class OpenTrainer : public BaseAction {
 public:
     OpenTrainer(int id, std::vector<Customer *> &customersList);
+    BaseAction* copy();
+    ~OpenTrainer();
     void act(Studio &studio);
     std::string toString() const;
 private:
@@ -42,6 +46,8 @@ private:
 class Order : public BaseAction {
 public:
     Order(int id);
+    BaseAction* copy();
+    ~Order();
     void act(Studio &studio);
     std::string toString() const;
 private:
@@ -52,6 +58,8 @@ private:
 class MoveCustomer : public BaseAction {
 public:
     MoveCustomer(int src, int dst, int customerId);
+    BaseAction* copy();
+    ~MoveCustomer();
     void act(Studio &studio);
     std::string toString() const;
 private:
@@ -64,6 +72,8 @@ private:
 class Close : public BaseAction {
 public:
     Close(int id);
+    BaseAction* copy();
+    ~Close();
     void act(Studio &studio);
     std::string toString() const;
 private:
@@ -74,6 +84,8 @@ private:
 class CloseAll : public BaseAction {
 public:
     CloseAll();
+    BaseAction* copy();
+    ~CloseAll();
     void act(Studio &studio);
     std::string toString() const;
 private:
@@ -83,6 +95,8 @@ private:
 class PrintWorkoutOptions : public BaseAction {
 public:
     PrintWorkoutOptions();
+    ~PrintWorkoutOptions();
+    BaseAction* copy();
     void act(Studio &studio);
     std::string toString() const;
 private:
@@ -92,6 +106,8 @@ private:
 class PrintTrainerStatus : public BaseAction {
 public:
     PrintTrainerStatus(int id);
+    ~PrintTrainerStatus();
+    BaseAction* copy();
     void act(Studio &studio);
     std::string toString() const;
 private:
@@ -102,6 +118,8 @@ private:
 class PrintActionsLog : public BaseAction {
 public:
     PrintActionsLog();
+    BaseAction* copy();
+    ~PrintActionsLog();
     void act(Studio &studio);
     std::string toString() const;
 private:
@@ -111,6 +129,8 @@ private:
 class BackupStudio : public BaseAction {
 public:
     BackupStudio();
+    BaseAction* copy();
+    ~BackupStudio();
     void act(Studio &studio);
     std::string toString() const;
 private:
@@ -120,6 +140,8 @@ private:
 class RestoreStudio : public BaseAction {
 public:
     RestoreStudio();
+    BaseAction* copy();
+    ~RestoreStudio();
     void act(Studio &studio);
     std::string toString() const;
 

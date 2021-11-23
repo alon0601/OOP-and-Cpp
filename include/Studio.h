@@ -13,6 +13,8 @@ public:
 	Studio();
     Studio(const Studio& other);
     Studio(const std::string &configFilePath);
+    Studio& operator=(const Studio& other);
+    ~Studio();
     void start();
     int getNumOfTrainers() const;
     Trainer* getTrainer(int tid);

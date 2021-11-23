@@ -85,18 +85,20 @@ void Studio::start() {
     cout << "Studio is now open!" << endl;
     string input;
     BaseAction *action;
+    getline(cin, input);
     int ids = 0;
-    while(input != "CloseAll") {
-        cout << "please enter an action" << endl;
+    bool flag;
+    while(input != "closeall") {
         vector<string> words;
-        getline(cin, input);
+        flag = false;
         SplitString(input, words, ' ');
         if (words[0] == "open"){
+            flag = true;
             vector<Customer*> customer;
             vector<string> cus;
             for (int i = 2; i < words.size(); i++){
                 SplitString(words[i],cus,',');
-                if (cus[1] == "swt"){
+                if(cus[1] == "swt"){
                     customer.push_back(new SweatyCustomer(cus[0],ids));
                     ids++;
                 }
@@ -115,33 +117,49 @@ void Studio::start() {
                 cus.clear();
             }
             action = new OpenTrainer(stoi(words[1]),customer);
+            customer.clear();
         }
         if(words[0] == "order"){
+            flag = true;
             action = new Order(stoi(words[1]));
         }
         if (words[0] == "move") {
+            flag = true;
             action = new MoveCustomer(stoi(words[1]), stoi(words[2]), stoi(words[3]));
         }
         if (words[0] == "close") {
+            flag = true;
             action = new Close(stoi(words[1]));
         }
         if(words[0] == "workout_options"){
+            flag = true;
             action = new PrintWorkoutOptions();
         }
         if(words[0] == "status"){
+            flag = true;
             action = new PrintTrainerStatus(stoi(words[1]));
         }
         if(words[0] == "log"){
+            flag = true;
             action = new PrintActionsLog();
         }
         if(words[0] == "backup"){
+            flag = true;
             action = new BackupStudio();
         }
-        action->act(*this);
-        this->actionsLog.push_back(action);
+        if(words[0] == "restore"){
+            flag = true;
+            action = new RestoreStudio();
+        }
+        if (flag){
+            action->act(*this);
+            this->actionsLog.push_back(action);
+        }
+        getline(cin, input);
     }
     action = new CloseAll();
     action->act(*this);
+    delete action;
 }
 
 Trainer *Studio::getTrainer(int tid) {
@@ -184,13 +202,56 @@ void Studio::SplitString(string s, vector<string> &v,char check){
 }
 
 Studio::Studio(const Studio& other):open(other.open) {
-    for(Workout w: this->workout_options)
+    for(Workout w: other.workout_options)
         this->workout_options.push_back(w);
-    for(Trainer* t: this->trainers){
+    for(Trainer* t: other.trainers){
         this->trainers.push_back(new Trainer(*t));
     }
-    for(BaseAction* action: this->actionsLog){
-        this->actionsLog.push_back(action);
+    for(BaseAction* action: other.actionsLog){
+        this->actionsLog.push_back(action->copy());
     }
 
+}
+
+Studio &Studio::operator=(const Studio &other) {
+    if (this == &other){
+        return *this;
+    }
+    else{
+        this->workout_options.clear();
+        for (Trainer* t:this->trainers){
+            delete t;
+        }
+        trainers.clear();
+        for (BaseAction* b: this->actionsLog){
+            delete b;
+        }
+        this->actionsLog.clear();
+        for(Workout w: other.workout_options)
+            this->workout_options.push_back(w);
+        for(Trainer* t: other.trainers){
+            this->trainers.push_back(new Trainer(*t));
+        }
+        for(BaseAction* action: other.actionsLog){
+            this->actionsLog.push_back(action->copy());
+        }
+    }
+}
+
+Studio::~Studio() {
+    for (Trainer* t:this->trainers){
+        if (t){
+            delete t;
+            t = nullptr;
+        }
+    }
+    trainers.clear();
+    for (BaseAction* b: this->actionsLog){
+        if (b){
+            delete b;
+            b = nullptr;
+        }
+    }
+    this->actionsLog.clear();
+    this->workout_options.clear();
 }

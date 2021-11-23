@@ -11,6 +11,8 @@ class Trainer{
 public:
     Trainer(int t_capacity);
     Trainer(const Trainer& trainer);
+    Trainer (Trainer &&t);
+    Trainer& operator=(Trainer &&t);
     int getCapacity() const;
     void addCustomer(Customer* customer);
     void removeCustomer(int id);
@@ -27,6 +29,10 @@ public:
     std::string printOrderList(); //string of the order
     void updateSalary(); //update the salary for the day
     int getTotalSalary(); //salary for all day
+    Trainer& operator=(const Trainer& other);
+
+    ~Trainer();
+
 private:
     void removePair(int id); //gets the id of the customer you want to remove
     int capacity;

@@ -11,10 +11,12 @@ Trainer::Trainer(int t_capacity):capacity(t_capacity){
     open = false;
     salary = 0;
 }
-Trainer::Trainer(const Trainer& other):open(other.open),salary(other.salary),capacity(other.capacity) {
+Trainer::Trainer(const Trainer& other):open(other.open),salary(other.salary),capacity(other.capacity) { //copy constructor
     for(Customer* c:other.customersList)
         this->customersList.push_back(c->copy());
-
+    for (OrderPair p:other.orderList){
+        this->orderList.push_back(p);
+    }
 }
 int Trainer::getCapacity() const {
     return capacity;
@@ -142,11 +144,52 @@ int Trainer::getTotalSalary() {
 
 void Trainer::removeAllCustomer() {
     for(Customer* c: this->customersList) {
-        delete c;
+        if (c){
+            delete c;
+            c = nullptr;
+        }
     }
     this->customersList.clear();
     this->orderList.clear();
 }
+
+Trainer::~Trainer() { //destructor
+    removeAllCustomer();
+}
+
+Trainer &Trainer::operator=(const Trainer &other) {
+    if (this == &other){
+        return *this;
+    }
+    else{
+        this->orderList.clear();
+        for (Customer* cus:this->customersList){
+            delete cus;
+        }
+        this->customersList.clear();
+        for (Customer* cus:other.customersList){
+            this->customersList.push_back(cus);
+        }
+        for (OrderPair p:other.orderList){
+            this->orderList.push_back(p);
+        }
+        this->open = other.open;
+        this->salary = other.salary;
+        this->capacity = other.capacity;
+    }
+}
+
+Trainer::Trainer(Trainer &&other) :open(other.open),salary(other.salary),capacity(other.capacity),orderList(move(other.orderList)),customersList(move(other.customersList)){
+}
+
+Trainer &Trainer::operator=(Trainer &&t){
+    this->customersList = move(t.customersList);
+    this->orderList = move(t.orderList);
+    this->salary= t.salary;
+    this->open = t.open;
+}
+
+
 
 
 
