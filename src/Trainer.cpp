@@ -23,7 +23,7 @@ int Trainer::getCapacity() const {
 }
 
 void Trainer::addCustomer(Customer *customer) {
-    if(capacity > this->customersList.size() + 1){
+    if(capacity > this->customersList.size()){
         customersList.push_back(customer);
     }
 }

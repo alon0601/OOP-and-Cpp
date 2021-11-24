@@ -20,6 +20,7 @@ public:
     virtual std::string toString() const=0;
     virtual BaseAction* copy() = 0;
     virtual ~BaseAction() = default;
+    std::string getStringStatus() const;
 protected:
     void complete();
     void error(std::string errorMsg);

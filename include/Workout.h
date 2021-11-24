@@ -6,6 +6,7 @@
 enum WorkoutType{
     ANAEROBIC, MIXED, CARDIO
 };
+using namespace std;
 
 class Workout{
 public:
@@ -15,13 +16,14 @@ public:
     int getPrice() const;
     WorkoutType getType() const;
     std::string toString() const;
-
+    string printType();
 
 private:
 	const int id;
     const std::string name;
     const int price;
     const WorkoutType type;
+
 
 };
 

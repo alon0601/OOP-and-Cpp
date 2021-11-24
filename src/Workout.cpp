@@ -4,6 +4,7 @@
 
 #include "../include/Workout.h"
 #include <iostream>
+
 using  namespace std;
 Workout::Workout(int w_id, std::string w_name, int w_price, WorkoutType w_type):id(w_id),name(w_name),price(w_price),type(w_type) {
 }
@@ -27,6 +28,19 @@ WorkoutType Workout::getType() const {
 std::string Workout::toString() const {
     return this->getName();
 }
+string Workout::printType() {
+    if (this->type == ANAEROBIC){
+        return "Anerobic";
+    }
+    if(this->type == MIXED){
+        return "Mixed";
+    }
+    if(this->type == CARDIO){
+        return "Cardio";
+    }
+}
+
+
 
 
 
