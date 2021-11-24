@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/spl211/splProject1/include/Action.h
-string
--
-iostream
--
-Customer.h
-/home/spl211/splProject1/include/Customer.h
-
 /home/spl211/splProject1/include/Customer.h
 vector
 -
@@ -21,18 +13,6 @@ string
 -
 Workout.h
 /home/spl211/splProject1/include/Workout.h
-
-/home/spl211/splProject1/include/Studio.h
-vector
--
-string
--
-Workout.h
-/home/spl211/splProject1/include/Workout.h
-Trainer.h
-/home/spl211/splProject1/include/Trainer.h
-Action.h
-/home/spl211/splProject1/include/Action.h
 
 /home/spl211/splProject1/include/Trainer.h
 vector
@@ -45,38 +25,6 @@ Workout.h
 /home/spl211/splProject1/include/Workout.h
 string
 -
-
-/home/spl211/splProject1/src/Studio.cpp
-../include/Studio.h
-/home/spl211/splProject1/include/Studio.h
-iostream
--
-fstream
--
-sstream
--
-algorithm
--
-error.h
--
-boost/algorithm/string.hpp
-/home/spl211/splProject1/src/boost/algorithm/string.hpp
-
-/home/spl211/splProject1/src/Studio.cpp
-../include/Studio.h
-/home/spl211/splProject1/include/Studio.h
-iostream
--
-fstream
--
-sstream
--
-algorithm
--
-error.h
--
-boost/algorithm/string.hpp
-/home/spl211/splProject1/src/boost/algorithm/string.hpp
 
 /home/spl211/splProject1/src/Trainer.cpp
 iostream
@@ -87,16 +35,4 @@ vector
 -
 ../include/Trainer.h
 /home/spl211/splProject1/include/Trainer.h
-
-/home/spl211/splProject1/src/main.cpp
-../include/Studio.h
-/home/spl211/splProject1/include/Studio.h
-../include/Trainer.h
-/home/spl211/splProject1/include/Trainer.h
-../include/Workout.h
-/home/spl211/splProject1/include/Workout.h
-../include/Action.h
-/home/spl211/splProject1/include/Action.h
-iostream
--
 

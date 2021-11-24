@@ -3,8 +3,8 @@
 //
 using namespace std;
 #include<iostream>
-#include<iterator> // for iterators
-#include<vector> // for vectors
+#include <iterator> // for iterators
+#include <vector> // for vectors
 #include "../include/Trainer.h"
 
 Trainer::Trainer(int t_capacity):capacity(t_capacity){

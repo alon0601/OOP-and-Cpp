@@ -210,7 +210,6 @@ Studio::Studio(const Studio& other):open(other.open) {
     for(BaseAction* action: other.actionsLog){
         this->actionsLog.push_back(action->copy());
     }
-
 }
 
 Studio &Studio::operator=(const Studio &other) {

@@ -46,12 +46,12 @@ void OpenTrainer::act(Studio &studio) {
             t->openTrainer();//open new session
             if (t->getCapacity() < this->customers.size()){//if we have more costumers then the capacity
                 for(int i = 0; i < t->getCapacity();i++){
-                    t->addCustomer(this->customers[i]);
+                    t->addCustomer(this->customers[i]->copy());
                 }
             }
             else {
                 for(Customer* c : this->customers){
-                    t->addCustomer(c);
+                    t->addCustomer(c->copy());
                 }//adding the costumers to the trainer's list
             }
         }
@@ -77,6 +77,12 @@ BaseAction *OpenTrainer::copy() {
 }
 
 OpenTrainer::~OpenTrainer() {
+    for (Customer* c:customers) {
+        if(c != nullptr){
+           delete c;
+           c = nullptr;
+        }
+    }
     this->customers.clear();
 }
 
