@@ -7,11 +7,10 @@ using namespace std;
 #include <vector> // for vectors
 #include "../include/Trainer.h"
 
-Trainer::Trainer(int t_capacity):capacity(t_capacity){
-    open = false;
-    salary = 0;
+Trainer::Trainer(int t_capacity):capacity(t_capacity),open(false),salary(0),customersList(),orderList(){
+
 }
-Trainer::Trainer(const Trainer& other):open(other.open),salary(other.salary),capacity(other.capacity) { //copy constructor
+Trainer::Trainer(const Trainer& other):capacity(other.capacity),open(other.open),salary(other.salary),customersList(),orderList() { //copy constructor
     for(Customer* c:other.customersList)
         this->customersList.push_back(c->copy());
     for (OrderPair p:other.orderList){
@@ -23,7 +22,7 @@ int Trainer::getCapacity() const {
 }
 
 void Trainer::addCustomer(Customer *customer) {
-    if(capacity > this->customersList.size()){
+    if(capacity > (int)this->customersList.size()){
         customersList.push_back(customer);
     }
 }
@@ -41,7 +40,6 @@ Customer *Trainer::getCustomer(int id) {
 
 void Trainer::removeCustomer(int id) { //do we need to delete the customer?!
     vector<Customer*>::iterator it;
-    int i = 0;
     bool flag = false;
     for (it = customersList.begin(); it != customersList.end() && flag == false; it++) {
         if((*it)->getId() == id){
@@ -72,7 +70,7 @@ void Trainer::order(const int customer_id, const std::vector<int> workout_ids, c
             orderd = true;
     }
     if(!orderd) {
-        for (int i = 0; i < workout_ids.size(); i++) {
+        for (int i = 0; i < (int)workout_ids.size(); i++) {
             for (Workout w: workout_options) {//fot each workout add it if he is in the costumer's workout ids list
                 if (workout_ids.at(i) == w.getId()) {
                     OrderPair p(customer_id, w);
@@ -177,9 +175,10 @@ Trainer &Trainer::operator=(const Trainer &other) {
         this->salary = other.salary;
         this->capacity = other.capacity;
     }
+    return *this;
 }
 
-Trainer::Trainer(Trainer &&other) :open(other.open),salary(other.salary),capacity(other.capacity),orderList(move(other.orderList)),customersList(move(other.customersList)){
+Trainer::Trainer(Trainer &&other) :capacity(other.capacity),open(other.open),salary(other.salary),customersList(move(other.customersList)),orderList(move(other.orderList)){
 }
 
 Trainer &Trainer::operator=(Trainer &&t){
@@ -187,6 +186,8 @@ Trainer &Trainer::operator=(Trainer &&t){
     this->orderList = move(t.orderList);
     this->salary= t.salary;
     this->open = t.open;
+
+    return *this;
 }
 
 

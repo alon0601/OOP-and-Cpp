@@ -48,9 +48,6 @@ void OpenTrainer::act(Studio &studio) {
                 for(int i = 0; i < t->getCapacity();i++){
                     t->addCustomer(this->customers[i]->copy());
                 }
-                for (int i = t->getCapacity()-1; i < this->customers.size(); ++i) {
-
-                }
             }
             else {
                 for(Customer* c : this->customers){
